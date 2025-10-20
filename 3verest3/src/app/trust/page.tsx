@@ -96,11 +96,11 @@ const pipelineCertifications: PipelineCertification[] = [
 ];
 
 const policies = [
-  { title: 'Acceptable Use Policy (AUP)', href: '#' },
-  { title: 'Data Processing Addendum (DPA)', href: '#' },
-  { title: 'Sustainability Statement', href: '#' },
-  { title: 'Privacy Policy', href: '#' },
-  { title: 'Terms of Service', href: '#' },
+  { title: 'Acceptable Use Policy (AUP)', href: '/3verest AUP.pdf' },
+  { title: 'Service Level Agreement (SLA)', href: '/3verest SLA.pdf' },
+  { title: 'Data Processing Addendum (DPA)', href: '/3verest DPA.pdf' },
+  { title: 'Sustainability Statement', href: '/sustainability' },
+  { title: 'Privacy Policy', href: '/privacy' },
 ];
 
 function CertificationCard({
