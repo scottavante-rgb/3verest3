@@ -40,22 +40,6 @@ const WhatMakesUsDifferentPage = () => {
       {/* Navigation */}
       <Navigation />
 
-      {/* Animated Aurora Background */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden opacity-[0.07]">
-        <motion.div
-          className="absolute w-[1000px] h-[1000px] rounded-full bg-[#00FFC2] blur-[250px]"
-          animate={{
-            x: ['-20%', '120%'],
-            y: ['10%', '90%', '10%'],
-          }}
-          transition={{
-            duration: 30,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
-      </div>
-
       <main className="relative py-32 px-8 md:px-24">
         <div className="max-w-[1500px] mx-auto space-y-32">
 
@@ -160,22 +144,6 @@ const WhatMakesUsDifferentPage = () => {
             viewport={{ once: true }}
             className="text-center relative"
           >
-            {/* Heartbeat-style pulse line */}
-            <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-10">
-              <motion.div
-                className="absolute h-[2px] w-full bg-gradient-to-r from-transparent via-[#00FFC2] to-transparent"
-                animate={{
-                  x: ['-100%', '200%'],
-                }}
-                transition={{
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: 'linear',
-                }}
-                style={{ top: '50%' }}
-              />
-            </div>
-
             <h2
               className="text-5xl md:text-6xl font-serif text-white text-center leading-tight max-w-4xl mx-auto mb-10 relative z-10"
               style={{ fontFamily: 'var(--font-playfair)' }}
