@@ -1,0 +1,421 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* 3verest Sensory Design Tokens */
+  --color-mint: #00FFC2;
+  --color-mint-dark: #00D4A0;
+  --color-mint-light: #66FFD9;
+  --color-cyan: #00D4FF;
+  --color-dark-bg: #0A0F14;
+  --color-dark-bg-alt: #0D1117;
+  --color-light-bg: #F9FFFC;
+  --color-light-bg-alt: #F5FAF8;
+
+  /* Animation Durations */
+  --duration-fast: 300ms;
+  --duration-normal: 500ms;
+  --duration-slow: 700ms;
+  --duration-slower: 1000ms;
+
+  /* Easing Functions */
+  --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  /* Glass Effect Tokens */
+  --glass-opacity: 0.04;
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: 24px;
+
+  /* Glow Tokens */
+  --glow-mint: 0 0 60px rgba(0, 255, 194, 0.1);
+  --glow-mint-strong: 0 0 80px rgba(0, 255, 194, 0.2);
+  --glow-mint-subtle: 0 0 40px rgba(0, 255, 194, 0.05);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+
+  /* 3verest Theme System */
+  --color-dark-bg: #0A0F14;
+  --color-light-bg: #F9FFFC;
+  --color-mint: #00FFC2;
+  --color-text-dark: #F2F6F5;
+  --color-text-light: #1C1C1C;
+  --color-gray-dark: #C5C7CA;
+  --color-gray-light: #333333;
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+/* Custom 3verest styles */
+.threeverest-glow {
+  filter: drop-shadow(0 0 25px #00FFC2);
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
+}
+
+/* Theme Transition Classes */
+.dark-theme {
+  background: var(--color-dark-bg);
+  color: var(--color-text-dark);
+  transition: background 1s ease, color 0.8s ease;
+}
+
+.light-theme {
+  background: var(--color-light-bg);
+  color: var(--color-text-light);
+  transition: background 1s ease, color 0.8s ease;
+}
+
+/* Mint Hover Underline */
+.hover-mint-underline {
+  position: relative;
+}
+
+.hover-mint-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-mint);
+  transition: width 0.3s ease;
+}
+
+.hover-mint-underline:hover::after {
+  width: 100%;
+}
+
+/* Performance Optimizations */
+.will-animate {
+  will-change: opacity, transform;
+}
+
+/* Typography Glow Effects */
+.text-glow-mint {
+  text-shadow: 0 0 6px rgba(0, 255, 194, 0.3);
+}
+
+.text-glow-mint-strong {
+  text-shadow: 0 0 12px rgba(0, 255, 194, 0.5);
+}
+
+/* ============================================
+   3VEREST SENSORY DESIGN LAYER
+   Reactive Surfaces, Typography Intelligence,
+   Brand Signals, and Performance Utilities
+   ============================================ */
+
+/* REACTIVE SURFACES */
+.glass-panel {
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  transition: all 700ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow;
+}
+
+.glass-panel:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 60px rgba(0, 255, 194, 0.1);
+}
+
+.glass-panel-light {
+  border-radius: 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.02);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  transition: all 700ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow;
+}
+
+.glass-panel-light:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 60px rgba(0, 255, 194, 0.08);
+}
+
+/* Glass panel with cursor tracking - apply via JS */
+.glass-panel-interactive {
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  transition: all 700ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 255, 194, 0.05), rgba(255, 255, 255, 0.02) 80%);
+}
+
+/* TYPOGRAPHY INTELLIGENCE */
+
+/* Highlighted text with mint underline reveal */
+.highlight {
+  position: relative;
+  display: inline-block;
+}
+
+.highlight::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00FFC2, transparent);
+  transform: scaleX(0);
+  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.highlight.in-view::after {
+  transform: scaleX(1);
+}
+
+/* Kinetic headline - weight adjusts on scroll via JS */
+.kinetic-headline {
+  font-variation-settings: "wght" var(--headline-weight, 400);
+  transition: font-variation-settings 0.3s ease-out;
+}
+
+/* BRAND SIGNALS */
+
+/* Micro-manifesto lines */
+.manifesto-line {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(0, 255, 194, 0.6);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.manifesto-line.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mint ripple effect */
+.ripple {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  background: rgba(0, 255, 194, 0.15);
+  border-radius: 50%;
+  transform: scale(0);
+  animation: rippleAnim 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes rippleAnim {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* PERFORMANCE OPTIMIZATIONS */
+
+/* GPU acceleration hints */
+.gpu-accelerated {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .glass-panel,
+  .glass-panel-light,
+  .highlight::after,
+  .manifesto-line,
+  .ripple {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .glass-panel:hover,
+  .glass-panel-light:hover {
+    transform: none !important;
+  }
+}
+
+/* UTILITY CLASSES */
+
+/* Parallax tilt effect - use with Framer Motion */
+.tilt-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Smooth gradient text */
+.gradient-text-mint {
+  background: linear-gradient(135deg, #00FFC2 0%, #00D4FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Subtle shine effect */
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.shine:hover::before {
+  left: 100%;
+}
+
+/* Ambient glow for cards */
+.ambient-glow {
+  box-shadow: 0 0 80px rgba(0, 255, 194, 0.05);
+  transition: box-shadow 0.8s ease-out;
+}
+
+.ambient-glow:hover {
+  box-shadow: 0 0 120px rgba(0, 255, 194, 0.12);
+}
