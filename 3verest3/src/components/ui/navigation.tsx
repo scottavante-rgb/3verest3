@@ -55,18 +55,19 @@ const Navigation = () => {
       transition={{ duration: 0.8, ease: 'easeOut' }}
       className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl"
     >
-      <motion.div
-        className="rounded-full shadow-xl px-4 sm:px-6 md:px-8 border transition-all duration-700 ease-out"
-        style={{
-          backdropFilter: 'blur(24px)',
-          WebkitBackdropFilter: 'blur(24px)',
-          backgroundColor: theme === 'dark'
-            ? scrolled ? 'rgba(10, 15, 20, 0.7)' : 'rgba(10, 15, 20, 0.6)'
-            : scrolled ? 'rgba(255, 255, 255, 0.8)' : 'rgba(255, 255, 255, 0.7)',
-          borderColor: theme === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)',
-        }}
-      >
-        <div className="flex items-center justify-between h-14 sm:h-16">
+      <div className="relative">
+        <motion.div
+          className="rounded-full shadow-xl px-4 sm:px-6 md:px-8 border transition-all duration-700 ease-out"
+          style={{
+            backdropFilter: 'blur(24px)',
+            WebkitBackdropFilter: 'blur(24px)',
+            backgroundColor: theme === 'dark'
+              ? scrolled ? 'rgba(10, 15, 20, 0.7)' : 'rgba(10, 15, 20, 0.6)'
+              : scrolled ? 'rgba(255, 255, 255, 0.8)' : 'rgba(255, 255, 255, 0.7)',
+            borderColor: theme === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)',
+          }}
+        >
+          <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -179,47 +180,53 @@ const Navigation = () => {
               </div>
             </motion.button>
           </div>
-        </div>
-
-        {/* Mobile Navigation Menu */}
-        <motion.div
-          initial={false}
-          animate={{
-            height: isMobileMenuOpen ? 'auto' : 0,
-            opacity: isMobileMenuOpen ? 1 : 0,
-          }}
-          transition={{ duration: 0.3, ease: 'easeInOut' }}
-          className="md:hidden overflow-hidden"
-        >
-          <div className={`px-2 pt-2 pb-3 space-y-1 sm:px-3 backdrop-blur-lg ${
-            isLightPage ? 'bg-white/40' : 'bg-black/20'
-          }`}>
-            {navItems.map((item) => (
-              <motion.div
-                key={item.name}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{
-                  opacity: isMobileMenuOpen ? 1 : 0,
-                  x: isMobileMenuOpen ? 0 : -20,
-                }}
-                transition={{ duration: 0.3, delay: 0.1 }}
-              >
-                <Link
-                  href={item.href}
-                  className={`block px-3 py-2 text-base font-medium uppercase tracking-wider transition-colors duration-200 ${
-                    isLightPage
-                      ? 'text-gray-700 hover:text-gray-900'
-                      : 'text-white/80 hover:text-white'
-                  }`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              </motion.div>
-            ))}
           </div>
         </motion.div>
-      </motion.div>
+
+        {/* Mobile Navigation Menu - Outside rounded container */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              className="md:hidden overflow-hidden mt-2 rounded-2xl shadow-xl border"
+              style={{
+                backdropFilter: 'blur(24px)',
+                WebkitBackdropFilter: 'blur(24px)',
+                backgroundColor: theme === 'dark'
+                  ? 'rgba(10, 15, 20, 0.9)'
+                  : 'rgba(255, 255, 255, 0.9)',
+                borderColor: theme === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)',
+              }}
+            >
+              <div className="px-4 pt-4 pb-3 space-y-1">
+                {navItems.map((item, index) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                  >
+                    <Link
+                      href={item.href}
+                      className={`block px-3 py-3 text-sm font-medium uppercase tracking-wider transition-colors duration-200 rounded-lg ${
+                        isLightPage
+                          ? 'text-gray-700 hover:text-gray-900 hover:bg-gray-100/50'
+                          : 'text-white/80 hover:text-white hover:bg-white/5'
+                      }`}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </motion.nav>
   );
 };
