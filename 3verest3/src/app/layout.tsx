@@ -4,7 +4,6 @@ import "./globals.css";
 import { ThemeProvider } from "@/contexts/theme-context";
 import ThemeTransitionWrapper from "@/components/ui/theme-transition-wrapper";
 import SmoothScroll from "@/components/ui/smooth-scroll";
-import CursorGlow from "@/components/ui/cursor-glow";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -42,7 +41,6 @@ export default function RootLayout({
         <ThemeProvider>
           <ThemeTransitionWrapper>
             <SmoothScroll />
-            <CursorGlow />
             {children}
           </ThemeTransitionWrapper>
         </ThemeProvider>
