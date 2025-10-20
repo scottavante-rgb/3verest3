@@ -311,7 +311,7 @@ export default function TrustPage() {
             className="text-center"
           >
             <p className="text-base md:text-lg text-gray-600 dark:text-white/60 italic max-w-3xl mx-auto leading-relaxed font-light">
-              These certifications are not add-ons — they are the foundation of 3verest.
+              These certifications are not add-ons; they are the foundation of 3verest.
               Built into our architecture from day one, they represent the unwavering commitment
               to trust, sovereignty, and compliance that defines who we are.
             </p>
