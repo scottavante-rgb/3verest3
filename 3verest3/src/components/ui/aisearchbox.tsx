@@ -29,7 +29,7 @@ const AISearchBox = () => {
   const [showHistory, setShowHistory] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const fullText = 'Ask SummitAi anything about 3verest...';
+  const fullText = '3verest\'s 2030 platform is built entirely on Ai.';
 
   // Typing animation effect
   useEffect(() => {
