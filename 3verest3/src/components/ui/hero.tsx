@@ -17,7 +17,7 @@ const Hero = () => {
           loop
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
           className="w-full h-full object-cover"
           style={{
             filter: 'brightness(1.05) contrast(1.05)',
@@ -26,10 +26,27 @@ const Hero = () => {
           ref={(el) => {
             if (el) {
               el.playbackRate = 1.0;
-              // Force video to play on mobile and when loaded
-              el.play().catch((error) => {
-                console.log('Video autoplay prevented:', error);
-              });
+              // Lazy load and play video
+              const playVideo = () => {
+                el.play().catch((error) => {
+                  console.log('Video autoplay prevented:', error);
+                });
+              };
+
+              // Use Intersection Observer for better performance
+              if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                  entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                      playVideo();
+                      observer.disconnect();
+                    }
+                  });
+                }, { threshold: 0.25 });
+                observer.observe(el);
+              } else {
+                playVideo();
+              }
             }
           }}
         >
