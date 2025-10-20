@@ -151,7 +151,8 @@ export default function SustainabilityPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="prose prose-lg dark:prose-invert prose-headings:font-light prose-headings:text-black dark:prose-headings:text-white prose-p:text-black dark:prose-p:text-white/90 prose-li:text-black dark:prose-li:text-white/90 prose-strong:text-black dark:prose-strong:text-white max-w-none"
+            className="prose prose-lg prose-headings:font-light prose-headings:text-black prose-p:text-black prose-li:text-black prose-strong:text-black prose-ul:text-black max-w-none"
+            style={{ color: '#000000' }}
           >
             <h2 className="text-center mb-12">Why Sustainability Matters to Healthcare</h2>
 
