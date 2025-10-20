@@ -29,7 +29,7 @@ export default function Home() {
       >
         <div className="max-w-[1600px] mx-auto text-center">
           <motion.h2
-            className="text-4xl md:text-6xl font-serif text-white leading-tight tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight tracking-tight px-4"
             style={{ fontFamily: 'var(--font-playfair)' }}
             animate={{
               opacity: [1, 0.95, 1],

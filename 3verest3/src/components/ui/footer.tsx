@@ -80,13 +80,14 @@ const Footer = () => {
           <motion.a
             href="/trust"
             whileHover={{ scale: 1.02 }}
-            className={`inline-block text-xs font-light tracking-wider mb-4 transition-all duration-300 ${
+            className={`inline-block text-xs font-light tracking-wider mb-4 transition-all duration-300 px-4 text-center ${
               theme === 'light'
                 ? 'text-gray-500 hover:text-[#00D6A3]'
                 : 'text-white/40 hover:text-[#00D6A3] hover:drop-shadow-[0_0_8px_rgba(0,214,163,0.5)]'
             }`}
           >
-            ISO 27001 • SOC 2 Type II • NHS DSPT • GDPR • HSCN • GAIA-X • CSA STAR • IRAP (pending)
+            <span className="hidden sm:inline">ISO 27001 • SOC 2 Type II • NHS DSPT • GDPR • HSCN • GAIA-X • CSA STAR • IRAP (pending)</span>
+            <span className="sm:hidden">ISO 27001 • SOC 2 • GDPR • HSCN</span>
           </motion.a>
 
           {/* Copyright */}

@@ -56,7 +56,7 @@ const Navigation = () => {
       className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl"
     >
       <motion.div
-        className="rounded-full shadow-xl px-6 sm:px-8 border transition-all duration-700 ease-out"
+        className="rounded-full shadow-xl px-4 sm:px-6 md:px-8 border transition-all duration-700 ease-out"
         style={{
           backdropFilter: 'blur(24px)',
           WebkitBackdropFilter: 'blur(24px)',
@@ -66,7 +66,7 @@ const Navigation = () => {
           borderColor: theme === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)',
         }}
       >
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -78,7 +78,7 @@ const Navigation = () => {
                 alt="3verest Logo"
                 width={30}
                 height={30}
-                className="h-6 w-auto"
+                className="h-5 sm:h-6 w-auto"
                 style={{
                   filter: 'brightness(1.2) contrast(1.1)',
                   mixBlendMode: 'lighten',
@@ -86,7 +86,7 @@ const Navigation = () => {
                 }}
                 priority
               />
-              <span className={`text-lg font-semibold tracking-wide ${
+              <span className={`text-base sm:text-lg font-semibold tracking-wide ${
                 isLightPage ? 'text-gray-900' : 'text-white'
               }`} style={{ fontFamily: 'var(--font-montserrat)' }}>
                 <span style={{ display: 'inline-block', transform: 'scaleX(-1)' }}>E</span>VEREST
@@ -144,21 +144,22 @@ const Navigation = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex-shrink-0 ml-2">
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`focus:outline-none transition-colors duration-200 ${
+              className={`focus:outline-none transition-colors duration-200 p-1 ${
                 isLightPage
                   ? 'text-gray-700 hover:text-gray-900 focus:text-gray-900'
                   : 'text-white/80 hover:text-white focus:text-white'
               }`}
+              aria-label="Toggle menu"
             >
-              <div className="flex flex-col space-y-1 w-6 h-6 justify-center">
+              <div className="flex flex-col space-y-1 w-5 h-5 justify-center">
                 <motion.span
                   animate={{
                     rotate: isMobileMenuOpen ? 45 : 0,
-                    y: isMobileMenuOpen ? 6 : 0,
+                    y: isMobileMenuOpen ? 5 : 0,
                   }}
                   className="w-full h-0.5 bg-current transition-all duration-300"
                 />
@@ -171,7 +172,7 @@ const Navigation = () => {
                 <motion.span
                   animate={{
                     rotate: isMobileMenuOpen ? -45 : 0,
-                    y: isMobileMenuOpen ? -6 : 0,
+                    y: isMobileMenuOpen ? -5 : 0,
                   }}
                   className="w-full h-0.5 bg-current transition-all duration-300"
                 />

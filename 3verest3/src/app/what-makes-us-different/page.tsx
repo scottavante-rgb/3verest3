@@ -52,7 +52,7 @@ const WhatMakesUsDifferentPage = () => {
             className="text-center"
           >
             <h1
-              className="text-5xl md:text-7xl font-serif text-white leading-tight max-w-5xl mx-auto mb-12"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif text-white leading-tight max-w-5xl mx-auto mb-12 px-4"
               style={{ fontFamily: 'var(--font-playfair)' }}
             >
               Every cloud company talks about infrastructure.
@@ -61,7 +61,7 @@ const WhatMakesUsDifferentPage = () => {
                 We talk about sovereignty, responsibility, and trust.
               </span>
             </h1>
-            <p className="text-lg text-[#C5C7CA] text-center max-w-xl mx-auto">
+            <p className="text-base sm:text-lg text-[#C5C7CA] text-center max-w-xl mx-auto px-4">
               Because the future of cloud is not about scale, it is about integrity.
             </p>
           </motion.section>
@@ -81,7 +81,7 @@ const WhatMakesUsDifferentPage = () => {
             >
               Our Approach
             </h2>
-            <p className="text-lg md:text-xl text-[#C5C7CA] text-center leading-relaxed max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-[#C5C7CA] text-center leading-relaxed max-w-3xl mx-auto px-4">
               3verest merges ethics, engineering, and execution.
               <br /><br />
               We design systems where responsibility is built in, not added later.
@@ -145,12 +145,12 @@ const WhatMakesUsDifferentPage = () => {
             className="text-center relative"
           >
             <h2
-              className="text-5xl md:text-6xl font-serif text-white text-center leading-tight max-w-4xl mx-auto mb-10 relative z-10"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-white text-center leading-tight max-w-4xl mx-auto mb-10 relative z-10 px-4"
               style={{ fontFamily: 'var(--font-playfair)' }}
             >
               Technology should protect people, not replace them.
             </h2>
-            <p className="text-lg md:text-xl text-[#C5C7CA] text-center max-w-3xl mx-auto leading-relaxed relative z-10">
+            <p className="text-base sm:text-lg md:text-xl text-[#C5C7CA] text-center max-w-3xl mx-auto leading-relaxed relative z-10 px-4">
               We believe that healthcare is more than data, it is humanity in motion.
               <br /><br />
               Every decision we make, from data residency to disaster recovery, is made with people in mind.
@@ -170,7 +170,7 @@ const WhatMakesUsDifferentPage = () => {
             className="text-center py-32"
           >
             <motion.h2
-              className="text-4xl md:text-6xl font-serif text-white leading-tight tracking-tight max-w-4xl mx-auto"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight tracking-tight max-w-4xl mx-auto px-4"
               style={{ fontFamily: 'var(--font-playfair)' }}
               animate={shouldReduceMotion ? {} : {
                 opacity: [1, 0.95, 1],
