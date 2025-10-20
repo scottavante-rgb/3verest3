@@ -183,38 +183,38 @@ const Navigation = () => {
           </div>
         </motion.div>
 
-        {/* Mobile Navigation Menu - Outside rounded container */}
+        {/* Mobile Navigation Menu - Square box with rounded edges */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="md:hidden overflow-hidden mt-2 rounded-2xl shadow-xl border"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2, ease: 'easeOut' }}
+              className="md:hidden mt-3 rounded-xl shadow-2xl border"
               style={{
                 backdropFilter: 'blur(24px)',
                 WebkitBackdropFilter: 'blur(24px)',
                 backgroundColor: theme === 'dark'
-                  ? 'rgba(10, 15, 20, 0.9)'
-                  : 'rgba(255, 255, 255, 0.9)',
+                  ? 'rgba(10, 15, 20, 0.95)'
+                  : 'rgba(255, 255, 255, 0.95)',
                 borderColor: theme === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)',
               }}
             >
-              <div className="px-4 pt-4 pb-3 space-y-1">
+              <div className="py-3 px-2">
                 {navItems.map((item, index) => (
                   <motion.div
                     key={item.name}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                    transition={{ duration: 0.2, delay: index * 0.05 }}
                   >
                     <Link
                       href={item.href}
-                      className={`block px-3 py-3 text-sm font-medium uppercase tracking-wider transition-colors duration-200 rounded-lg ${
+                      className={`block px-4 py-3 text-sm font-medium uppercase tracking-wider transition-all duration-200 rounded-lg ${
                         isLightPage
-                          ? 'text-gray-700 hover:text-gray-900 hover:bg-gray-100/50'
-                          : 'text-white/80 hover:text-white hover:bg-white/5'
+                          ? 'text-gray-700 hover:text-gray-900 hover:bg-gray-100/80'
+                          : 'text-white/80 hover:text-white hover:bg-white/10'
                       }`}
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
