@@ -69,7 +69,7 @@ export default function PrivacyPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="max-w-4xl mx-auto prose prose-lg dark:prose-invert prose-headings:font-light prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-600 dark:prose-p:text-white/70 prose-p:font-light"
+          className="max-w-4xl mx-auto prose prose-lg dark:prose-invert prose-headings:font-light prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-800 dark:prose-p:text-white/90 prose-li:text-gray-800 dark:prose-li:text-white/90 prose-strong:text-gray-900 dark:prose-strong:text-white"
         >
           <h2>1. Introduction</h2>
           <p>
