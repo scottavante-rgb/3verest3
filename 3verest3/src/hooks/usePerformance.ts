@@ -14,7 +14,7 @@ import { useEffect, useState, useCallback, useRef } from "react";
  */
 export function useIdleDetection(timeout: number = 15000): boolean {
   const [isIdle, setIsIdle] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout>();
+  const timeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
   const resetIdleTimer = useCallback(() => {
     setIsIdle(false);
@@ -133,9 +133,9 @@ export function useGPUAcceleration(): boolean {
  */
 export function useIntersectionObserver(
   options: IntersectionObserverInit = {}
-): [React.RefObject<HTMLElement>, boolean] {
+): [React.RefObject<HTMLElement | null>, boolean] {
   const [isInView, setIsInView] = useState(false);
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {

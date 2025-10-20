@@ -43,7 +43,7 @@ const ContactPage = () => {
               className="text-5xl md:text-6xl lg:text-7xl font-serif tracking-tight leading-tight mb-8"
               style={{ fontFamily: 'var(--font-playfair)', color: '#0B0C0D' }}
             >
-              Let's build the future
+              Let&apos;s build the future
               <br />
               together.
             </h1>

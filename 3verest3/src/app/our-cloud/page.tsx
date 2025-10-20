@@ -136,7 +136,7 @@ const OurCloudPage = () => {
               className="text-2xl md:text-3xl font-serif text-[#00FFC2] mb-6"
               style={{ fontFamily: 'var(--font-playfair)' }}
             >
-              There are clouds. And then there's ours.
+              There are clouds. And then there&apos;s ours.
             </p>
             <motion.div
               initial={{ scaleX: 0 }}

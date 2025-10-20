@@ -58,10 +58,10 @@ export function ParticleHalo({
   idleTimeout = 15,
 }: ParticleHaloProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | undefined>(undefined);
   const particlesRef = useRef<Particle[]>([]);
   const [isIdle, setIsIdle] = useState(false);
-  const idleTimerRef = useRef<NodeJS.Timeout>();
+  const idleTimerRef = useRef<NodeJS.Timeout | undefined>(undefined);
   const [shouldRender, setShouldRender] = useState(true);
 
   useEffect(() => {
