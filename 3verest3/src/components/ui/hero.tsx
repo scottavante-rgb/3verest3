@@ -17,6 +17,7 @@ const Hero = () => {
           loop
           muted
           playsInline
+          preload="auto"
           className="w-full h-full object-cover"
           style={{
             filter: 'brightness(1.05) contrast(1.05)',
@@ -25,10 +26,15 @@ const Hero = () => {
           ref={(el) => {
             if (el) {
               el.playbackRate = 1.0;
+              // Force video to play on mobile and when loaded
+              el.play().catch((error) => {
+                console.log('Video autoplay prevented:', error);
+              });
             }
           }}
         >
           <source src="/fly.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-black/40" />
       </div>
