@@ -126,13 +126,12 @@ export function SummitResponse({
                   )}
                 </div>
 
-                {/* Powered by AltitudeAi and 3verest */}
+                {/* Powered by Altitude Ai */}
                 <div className="flex items-center justify-center gap-2 text-xs text-white/30">
                   <Lightning size={14} weight="fill" className="text-[#00FFC2]/40" />
-                  <span className="text-[#00FFC2]/60 font-semibold">AltitudeAi</span>
-                  <span>and 3verest product</span>
-                  <span className="text-white/20">|</span>
-                  <span className="text-white/40">A Sovereign AI Platform for Business</span>
+                  <span>Powered by</span>
+                  <span className="text-[#00FFC2]/60 font-semibold">Altitude Ai</span>
+                  <span>, an 3verest Futures Project.</span>
                 </div>
               </motion.div>
             )}

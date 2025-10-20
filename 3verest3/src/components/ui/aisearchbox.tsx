@@ -217,7 +217,7 @@ const AISearchBox = () => {
           className="mt-4 text-center"
         >
           <span className="text-white/40 text-sm tracking-wide">
-            <span className="text-[#00FFC2]/70 font-semibold">AltitudeAi</span> and 3verest product
+            Powered by <span className="text-[#00FFC2]/70 font-semibold">Altitude Ai</span>, an 3verest Futures Project.
           </span>
         </motion.div>
       )}
