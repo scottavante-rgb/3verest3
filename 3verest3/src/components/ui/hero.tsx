@@ -50,7 +50,7 @@ const Hero = () => {
             }
           }}
         >
-          <source src="/fly.mp4" type="video/mp4" />
+          <source src="/fly2.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-black/40" />
