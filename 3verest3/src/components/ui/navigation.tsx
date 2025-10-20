@@ -45,6 +45,7 @@ const Navigation = () => {
     { name: 'Our Cloud', href: '/our-cloud' },
     { name: 'Sovereignty', href: '/sovereignty' },
     { name: 'The Difference', href: '/what-makes-us-different' },
+    { name: 'Futures 2030', href: '/futures' },
     { name: 'Contact', href: '/contact' },
   ];
 
