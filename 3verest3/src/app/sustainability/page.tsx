@@ -90,7 +90,7 @@ export default function SustainabilityPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-lg text-gray-600 dark:text-white/70 leading-relaxed font-light"
+            className="text-lg text-gray-800 dark:text-white/90 leading-relaxed font-light"
           >
             At 3verest, we believe that technological sovereignty must align with environmental responsibility. Our commitment to sustainability is woven into every aspect of our cloud infrastructure, from energy sourcing to hardware lifecycle management.
           </motion.p>
@@ -131,7 +131,7 @@ export default function SustainabilityPage() {
                     {commitment.title}
                   </h3>
 
-                  <p className="text-gray-600 dark:text-white/70 font-light leading-relaxed">
+                  <p className="text-gray-800 dark:text-white/90 font-light leading-relaxed">
                     {commitment.description}
                   </p>
                 </div>
@@ -151,7 +151,7 @@ export default function SustainabilityPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="prose prose-lg dark:prose-invert prose-headings:font-light prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-600 dark:prose-p:text-white/70 prose-p:font-light max-w-none"
+            className="prose prose-lg dark:prose-invert prose-headings:font-light prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-800 dark:prose-p:text-white/90 prose-li:text-gray-800 dark:prose-li:text-white/90 prose-strong:text-gray-900 dark:prose-strong:text-white max-w-none"
           >
             <h2 className="text-center mb-12">Why Sustainability Matters to Healthcare</h2>
 
@@ -196,11 +196,11 @@ export default function SustainabilityPage() {
                 Doing the Right Thing
               </h3>
 
-              <p className="text-lg text-gray-700 dark:text-white/80 mb-6 font-light leading-relaxed">
+              <p className="text-lg text-gray-800 dark:text-white/90 mb-6 font-light leading-relaxed">
                 Technology should serve humanity without compromising the planet. Every decision we make—from server selection to cooling design—is guided by a simple principle: <strong>do the right thing.</strong>
               </p>
 
-              <p className="text-base text-gray-600 dark:text-white/70 italic font-light">
+              <p className="text-base text-gray-800 dark:text-white/90 italic font-light">
                 We believe that a sovereign, ethical cloud must also be a sustainable cloud. This is our commitment to healthcare, to our partners, and to future generations.
               </p>
             </div>
@@ -217,7 +217,7 @@ export default function SustainabilityPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-lg text-gray-600 dark:text-white/70 mb-4 font-light">
+            <p className="text-lg text-gray-800 dark:text-white/90 mb-4 font-light">
               For questions about our sustainability initiatives or to request our annual sustainability report:
             </p>
             <a
