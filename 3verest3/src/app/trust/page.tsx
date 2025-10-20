@@ -293,7 +293,7 @@ export default function TrustPage() {
               Certifications in Progress
             </h2>
             <p className="text-lg text-gray-500 dark:text-white/50 font-light">
-              The journey continues — deepening trust across borders and jurisdictions
+              The journey continues, deepening trust across borders and jurisdictions
             </p>
           </motion.div>
 
@@ -311,8 +311,9 @@ export default function TrustPage() {
             className="text-center"
           >
             <p className="text-base md:text-lg text-gray-600 dark:text-white/60 italic max-w-3xl mx-auto leading-relaxed font-light">
-              3verest certifications create a strong moat — often out of reach for hyperscalers
-              whose public architectures cannot meet sovereign and compliance requirements.
+              These certifications are not add-ons — they are the foundation of 3verest.
+              Built into our architecture from day one, they represent the unwavering commitment
+              to trust, sovereignty, and compliance that defines who we are.
             </p>
           </motion.div>
         </div>
