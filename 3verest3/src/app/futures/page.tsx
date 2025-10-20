@@ -33,36 +33,46 @@ const FuturesPage = () => {
     {
       icon: Cpu,
       title: 'Sovereignty Begins at the Hypervisor.',
-      subtitle: '3verest KVM Virtualisation Platform',
-      description: '3verest is building its own KVM-based virtualisation platform, designed for healthcare-grade workloads. It delivers full control over the virtual layer, faster provisioning, deep telemetry, and sovereign independence from legacy licensing. This platform will become the foundation for every 3verest cloud region, enabling precision scaling and next-generation orchestration.',
+      subtitle: 'The 3verest KVM Virtualisation Platform',
+      idea: '3verest is building its own KVM based virtualisation platform, a complete reimagining of how workloads are orchestrated in healthcare environments. Free from third party licensing models, it is a system of total control designed for medical imaging, diagnostics, and regulated workloads. It is faster, lighter, and sovereign to the core, purpose built for performance, transparency, and independence. Born from the 3verest Lab, this platform represents our pursuit of total autonomy in cloud infrastructure.',
+      benefit: 'Partners gain a cloud foundation that is unshackled, with predictable economics and zero reliance on legacy platforms like VMware. Customers experience faster provisioning, deeper telemetry, and the ability to scale across regions without external dependencies. For healthcare OEMs, it means a private cloud environment that delivers public cloud agility with the certainty and security of private infrastructure. The 3verest KVM layer becomes the quiet engine behind every deployment, powering the next decade of sovereign healthcare innovation.',
+      video: '/videos/kvm.mp4',
       gradient: 'from-[#00FFC2]/20 via-[#00D4FF]/10 to-transparent',
     },
     {
       icon: Database,
-      title: 'Data, Re-engineered for Velocity and Density.',
-      subtitle: '3verest Storage Engine',
-      description: 'Our new storage platform redefines performance. Combining NVMe fabrics, distributed erasure coding, and adaptive tiering, it is optimised for high-frequency radiology and genomics workloads. Fast. Dense. Resilient. Built to keep healthcare data closer, faster, and safer than ever.',
+      title: 'Data Reengineered for Velocity and Density.',
+      subtitle: 'The 3verest Storage Engine',
+      idea: 'We are developing a new storage platform that breaks the barriers of traditional performance and density. Built on NVMe over Fabric, adaptive tiering, and intelligent erasure coding, it is engineered to handle the velocity of medical imaging and the scale of research grade datasets. Every byte is treated as sovereign, fast, and alive, moving intelligently across tiers for cost, speed, and resilience. Within the 3verest Lab, this is where we push boundaries, rethinking how data should live and move in the modern healthcare ecosystem.',
+      benefit: 'Healthcare organisations and software vendors will access blistering performance with hospital grade resilience, capable of managing terabytes to petabytes seamlessly. It enables faster study retrievals, higher throughput, and lower latency across continents. For our OEM partners, this means no compromise, the ability to deliver imaging, AI analysis, and cloud archiving without delay or data drift. 3verest Storage Engine transforms the act of storing data into a competitive advantage, one measured in milliseconds and trust.',
+      video: '/videos/storage.mp4',
       gradient: 'from-[#00D4FF]/20 via-[#00FFC2]/10 to-transparent',
     },
     {
       icon: Globe,
       title: 'The Edge is Expanding.',
-      subtitle: 'Edge Cloud Evolution',
-      description: 'By 2030, 3verest Edge will support GPU-accelerated compute and multi-tier storage across distributed sovereign nodes. Hospitals, diagnostic groups, and national healthcare systems will gain local-cloud power with extreme resilience and zero-latency AI inference. Each edge site acts as a mini-region connected, autonomous, and sovereign.',
+      subtitle: 'The Edge Cloud Evolution',
+      idea: '3verest Edge Cloud is evolving beyond simple presence into a GPU enabled, compute rich sovereign micro region. Each node will host advanced compute and storage, capable of AI inference, rendering, and data residency with extreme resilience. These edge zones will bring intelligence and speed within reach of every hospital, research site, and diagnostic facility, reducing dependency on central regions. The 3verest Lab is where this vision is being designed and refined, a network of sovereign edge regions that bring the future of healthcare computing closer to the point of care.',
+      benefit: 'OEMs and national healthcare providers can deploy their applications closer to the point of care, ensuring sub second latency and regulatory compliant sovereignty. It enables AI models to run locally at the edge, interpreting scans, accelerating diagnostics, and maintaining performance even during network interruptions. This is cloud not as a distant resource but as a trusted companion that lives beside every healthcare operation. Edge Cloud by 3verest represents the final frontier of speed, resilience, and sovereignty.',
+      video: '/videos/edge.mp4',
       gradient: 'from-[#00FFC2]/20 via-[#00D4FF]/10 to-transparent',
     },
     {
       icon: Brain,
       title: 'Our Operating System for the Enterprise.',
-      subtitle: 'Altitude AI Platform',
-      description: 'Twelve months in development, Altitude AI is 3verest\'s internal platform, a sovereign ERP-like system that merges operations, billing, analytics, and intelligence. It brings every team, system, and workflow into one unified environment. Agents and automations will increasingly handle complex tasks, reducing friction, increasing precision, and letting human teams focus on innovation. Powered entirely by our own sovereign AI infrastructure.',
+      subtitle: 'The Altitude AI Platform',
+      idea: 'Altitude AI is 3verest\'s most ambitious internal platform, twelve months in development and growing every day. It serves as a sovereign AI powered operating layer across the entire company, bringing together finance, operations, sales, billing, contracts, analytics, and support into one fluid, intelligent system. It is the bridge between human teams and autonomous agents, where workflows are learned, optimised, and executed with precision. The 3verest Lab continues to evolve Altitude with every iteration, turning insight into automation and redefining how a cloud company operates.',
+      benefit: 'For partners, Altitude ensures speed, accuracy, and total visibility. Quotes, deployments, billing, and support requests will be handled by AI agents that operate continuously, reducing response times and friction. For customers, it means more predictable service, greater transparency, and human support that is amplified by intelligence. Altitude will become the unseen AI copilot that keeps the 3verest ecosystem running, a sovereign ERP for a sovereign cloud company. And as it evolves, its intelligence will shape how we work, how we think, and how we deliver excellence at scale.',
+      video: '/videos/ai.mp4',
       gradient: 'from-[#00D4FF]/20 via-[#00FFC2]/10 to-transparent',
     },
     {
       icon: Sparkle,
       title: 'Opening the Cloud to Intelligence.',
-      subtitle: 'AI & LLM Services for Customers',
-      description: '3verest will soon extend its AI and LLM capabilities to customers, secure, healthcare-ready, and hosted entirely within sovereign regions. From natural-language data querying to custom medical model deployment, clients will be able to build, fine-tune, and serve AI applications directly on the 3verest platform. This marks the next chapter of our evolution: not just hosting the cloud, but empowering intelligence within it.',
+      subtitle: 'AI and LLM Services for Customers',
+      idea: 'The next evolution of 3verest is to open our sovereign AI infrastructure to our customers, enabling them to deploy, fine tune, and run AI and LLM workloads directly within their own sovereign regions. This includes secure healthcare tuned models, private vector search, and multimodal AI for clinical, research, and operational use. The 3verest Lab team is already working with early partners to refine these capabilities, ensuring every model runs with the same precision and trust that defines our cloud.',
+      benefit: 'For healthcare software companies, this means they can integrate intelligence into their applications without sending data beyond their borders. For hospitals and research groups, it unlocks the ability to analyse, summarise, and predict from their own datasets privately, ethically, and locally. No hyperscaler dependency. No egress fees. Only pure, sovereign intelligence built on infrastructure that understands healthcare. 3verest becomes not just a platform for hosting but a platform for thinking, learning, and advancing.',
+      video: '/videos/llm.mp4',
       gradient: 'from-[#00FFC2]/20 via-[#00D4FF]/10 to-transparent',
     },
   ];
@@ -163,54 +173,89 @@ const FuturesPage = () => {
       {projects.map((project, index) => (
         <section
           key={index}
-          className="relative min-h-screen flex items-center justify-center py-32 px-4 sm:px-6"
+          className="relative min-h-screen py-32 px-4 sm:px-8 md:px-20"
         >
           {/* Gradient Background */}
           <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20`} />
 
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            className="relative z-10 max-w-4xl mx-auto"
-          >
-            {/* Icon */}
+          <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Text Content */}
             <motion.div
-              initial={{ scale: 0, rotate: -180 }}
-              whileInView={{ scale: 1, rotate: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="inline-flex p-4 rounded-2xl bg-[#00FFC2]/10 mb-8"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 1.2, ease: 'easeOut' }}
             >
-              <project.icon size={48} weight="duotone" className="text-[#00FFC2]" />
+              {/* Icon */}
+              <motion.div
+                initial={{ scale: 0, rotate: -180 }}
+                whileInView={{ scale: 1, rotate: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                className="inline-flex p-4 rounded-2xl bg-[#00FFC2]/10 mb-8"
+              >
+                <project.icon size={48} weight="duotone" className="text-[#00FFC2]" />
+              </motion.div>
+
+              {/* Subtitle */}
+              <p className="text-sm uppercase tracking-widest text-[#00FFC2]/70 mb-4 font-light">
+                {project.subtitle}
+              </p>
+
+              {/* Title */}
+              <h2
+                className="text-3xl sm:text-4xl md:text-5xl font-serif text-white mb-8 leading-tight"
+                style={{ fontFamily: 'var(--font-playfair)' }}
+              >
+                {project.title}
+              </h2>
+
+              {/* The Idea */}
+              <div className="mb-8">
+                <h3 className="text-base uppercase tracking-widest text-[#00FFC2]/90 mb-3 font-semibold">
+                  The Idea
+                </h3>
+                <p className="text-base sm:text-lg text-white/70 leading-relaxed font-light">
+                  {project.idea}
+                </p>
+              </div>
+
+              {/* The Benefit */}
+              <div>
+                <h3 className="text-base uppercase tracking-widest text-[#00FFC2]/90 mb-3 font-semibold">
+                  The Benefit to Our Partners and Customers
+                </h3>
+                <p className="text-base sm:text-lg text-white/70 leading-relaxed font-light">
+                  {project.benefit}
+                </p>
+              </div>
             </motion.div>
 
-            {/* Subtitle */}
-            <motion.p
-              variants={fadeUp}
-              className="text-sm uppercase tracking-widest text-[#00FFC2]/70 mb-4 font-light"
+            {/* Right: Video */}
+            <motion.div
+              initial={{ opacity: 0, scale: 1.05 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 1.2, ease: 'easeOut' }}
+              className="relative group"
             >
-              {project.subtitle}
-            </motion.p>
-
-            {/* Title */}
-            <motion.h2
-              variants={fadeUp}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-8 leading-tight"
-              style={{ fontFamily: 'var(--font-playfair)' }}
-            >
-              {project.title}
-            </motion.h2>
-
-            {/* Description */}
-            <motion.p
-              variants={fadeUp}
-              className="text-lg sm:text-xl text-white/70 leading-relaxed font-light"
-            >
-              {project.description}
-            </motion.p>
-          </motion.div>
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="rounded-2xl shadow-2xl w-full h-auto object-cover border border-white/10"
+                style={{
+                  filter: 'brightness(0.9) contrast(1.1)',
+                }}
+              >
+                <source src={project.video} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              {/* Mint overlay on hover */}
+              <div className="absolute inset-0 rounded-2xl bg-[#00FFC2]/0 group-hover:bg-[#00FFC2]/5 transition-all duration-500 pointer-events-none" />
+            </motion.div>
+          </div>
         </section>
       ))}
 
@@ -248,8 +293,11 @@ const FuturesPage = () => {
             variants={fadeUp}
             className="text-xl sm:text-2xl text-white/70 leading-relaxed font-light mb-12 max-w-3xl mx-auto"
           >
-            Every project within 3verest Futures is more than a roadmap, it&apos;s an act of independence.
-            A vision for a healthcare cloud that is self-designed, self-optimised, and self-intelligent.
+            Every project within 3verest Futures is a declaration of independence, of innovation, of intent.
+            At the 3verest Lab, our mission is constant improvement to find better, faster, and more intelligent ways to deliver cloud for our partners and customers.
+            We are building a future where every layer of the stack, from silicon to system to intelligence, is sovereign, healthcare optimised, and human in its purpose.
+            This is the decade of self determination for cloud.
+            And it is being built, piece by piece, right here at 3verest.
           </motion.p>
 
           {/* CTA Button */}
