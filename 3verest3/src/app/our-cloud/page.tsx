@@ -30,7 +30,7 @@ const OurCloudPage = () => {
         'It was not designed for scale alone.',
         'It was designed for trust.',
       ],
-      textStyle: 'text-white font-serif',
+      textStyle: 'text-white',
       delay: 0.2,
     },
     {
