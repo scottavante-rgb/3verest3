@@ -428,15 +428,6 @@ const ContactPage = () => {
                   <p>10707 Berlin</p>
                   <p>Germany</p>
                 </div>
-                <div className="flex items-center gap-2 mt-2">
-                  <Phone size={18} weight="light" className="text-[#00aa88]" />
-                  <a
-                    href="tel:+61290904838"
-                    className="text-[#00aa88] hover:text-[#00FFC2] transition-colors duration-200 font-medium"
-                  >
-                    +61 (0) 2 9090 4838
-                  </a>
-                </div>
               </div>
             </motion.div>
           </div>
