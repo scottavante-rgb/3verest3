@@ -167,7 +167,7 @@ const AISearchBox = () => {
             onBlur={() => setIsFocused(false)}
             onKeyPress={handleKeyPress}
             placeholder={placeholder}
-            className="w-full h-16 pl-12 pr-20 py-4 text-white placeholder-white/50 bg-black/30 backdrop-blur-xl border border-[#00FFC2]/20 focus:border-[#00FFC2]/60 focus:outline-none focus:ring-0 transition-all duration-300 text-lg rounded-full shadow-[0_0_30px_rgba(0,255,194,0.1)]"
+            className="w-full h-12 sm:h-14 md:h-16 pl-10 sm:pl-12 pr-16 sm:pr-20 py-3 sm:py-4 text-white placeholder-white/50 bg-black/30 backdrop-blur-xl border border-[#00FFC2]/20 focus:border-[#00FFC2]/60 focus:outline-none focus:ring-0 transition-all duration-300 text-base md:text-lg rounded-full shadow-[0_0_30px_rgba(0,255,194,0.1)]"
           />
           
           <div className="absolute inset-y-0 right-0 pr-3 flex items-center">

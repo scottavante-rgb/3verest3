@@ -134,7 +134,7 @@ const FuturesPage = () => {
             initial="hidden"
             animate="visible"
             transition={{ delay: 0.4 }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif mb-6"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif mb-6"
             style={{ fontFamily: 'var(--font-playfair)' }}
           >
             3verest Futures
@@ -173,7 +173,7 @@ const FuturesPage = () => {
       {projects.map((project, index) => (
         <section
           key={index}
-          className="relative min-h-screen py-32 px-4 sm:px-8 md:px-20"
+          className="relative min-h-screen py-32 px-4 sm:px-6 md:px-12 lg:px-20"
         >
           {/* Gradient Background */}
           <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20`} />

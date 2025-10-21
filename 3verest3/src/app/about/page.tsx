@@ -95,7 +95,7 @@ const AboutPage = () => {
       {/* Navigation */}
       <Navigation />
 
-      <main className="py-32 px-8 md:px-16 lg:px-24 flex flex-col items-center justify-center">
+      <main className="py-32 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 flex flex-col items-center justify-center">
         <div className="max-w-5xl w-full">
           {/* Hero Headline */}
           <motion.div
@@ -105,7 +105,7 @@ const AboutPage = () => {
             className="mb-32 text-center"
           >
             <h1
-              className="text-5xl md:text-6xl lg:text-7xl font-serif tracking-tight leading-tight mb-8"
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif tracking-tight leading-tight mb-8"
               style={{ fontFamily: 'var(--font-playfair)', color: '#0B0C0D' }}
             >
               We build infrastructure
@@ -195,7 +195,7 @@ const AboutPage = () => {
               ensuring data remains within jurisdictional boundaries while delivering global performance.
             </p>
           </div>
-          <div className="relative w-full max-w-4xl mx-auto h-[390px] bg-[#F5F7F5] rounded-2xl shadow-lg overflow-hidden">
+          <div className="relative w-full max-w-4xl mx-auto h-64 md:h-80 lg:h-96 bg-[#F5F7F5] rounded-2xl shadow-lg overflow-hidden">
             <BackgroundLines />
             <WorldMap
               dots={[

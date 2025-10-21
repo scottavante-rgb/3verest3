@@ -127,7 +127,7 @@ const OurCloudPage = () => {
             className="text-center mb-32"
           >
             <h1
-              className="text-6xl md:text-8xl font-serif font-bold text-white tracking-tight mb-8"
+              className="text-4xl md:text-6xl lg:text-8xl font-serif font-bold text-white tracking-tight mb-8"
               style={{ fontFamily: 'var(--font-playfair)' }}
             >
               Our Cloud

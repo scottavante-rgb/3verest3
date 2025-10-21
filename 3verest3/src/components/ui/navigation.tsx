@@ -58,7 +58,7 @@ const Navigation = () => {
     >
       <div className="relative">
         <motion.div
-          className="rounded-full shadow-xl px-4 sm:px-6 md:px-8 border transition-all duration-700 ease-out"
+          className="rounded-full shadow-xl px-4 sm:px-6 md:px-7 lg:px-8 border transition-all duration-700 ease-out"
           style={{
             backdropFilter: 'blur(24px)',
             WebkitBackdropFilter: 'blur(24px)',
@@ -80,7 +80,7 @@ const Navigation = () => {
                 alt="3verest Logo"
                 width={30}
                 height={30}
-                className="h-5 sm:h-6 w-auto"
+                className="h-5 sm:h-6 md:h-6 lg:h-7 w-auto"
                 style={{
                   filter: 'brightness(1.2) contrast(1.1)',
                   mixBlendMode: 'lighten',
@@ -109,7 +109,7 @@ const Navigation = () => {
                   <Link
                     href={item.href}
                     onClick={handleLinkClick}
-                    className={`text-sm font-medium uppercase tracking-wider transition-all duration-300 relative group block overflow-hidden ${
+                    className={`text-xs lg:text-sm font-medium uppercase tracking-wider transition-all duration-300 relative group block overflow-hidden ${
                       isLightPage
                         ? 'text-gray-700 hover:text-gray-900'
                         : 'text-white/80 hover:text-white'
@@ -146,7 +146,7 @@ const Navigation = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex-shrink-0 ml-2">
+          <div className="md:hidden flex-shrink-0 ml-2 flex items-center">
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -192,7 +192,7 @@ const Navigation = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2, ease: 'easeOut' }}
-              className="md:hidden mt-3 rounded-xl shadow-2xl border"
+              className="md:hidden mt-3 rounded-xl shadow-2xl border max-w-xs sm:max-w-sm"
               style={{
                 backdropFilter: 'blur(24px)',
                 WebkitBackdropFilter: 'blur(24px)',
@@ -202,7 +202,7 @@ const Navigation = () => {
                 borderColor: theme === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)',
               }}
             >
-              <div className="py-3 px-2">
+              <div className="py-2 md:py-3 px-2 md:px-3">
                 {navItems.map((item, index) => (
                   <motion.div
                     key={item.name}
@@ -212,7 +212,7 @@ const Navigation = () => {
                   >
                     <Link
                       href={item.href}
-                      className={`block px-4 py-3 text-sm font-medium uppercase tracking-wider transition-all duration-200 rounded-lg ${
+                      className={`block px-4 py-3 text-xs sm:text-sm font-medium uppercase tracking-wider transition-all duration-200 rounded-lg break-words ${
                         isLightPage
                           ? 'text-gray-700 hover:text-gray-900 hover:bg-gray-100/80'
                           : 'text-white/80 hover:text-white hover:bg-white/10'
@@ -233,5 +233,6 @@ const Navigation = () => {
 };
 
 export default Navigation;
+
 
 

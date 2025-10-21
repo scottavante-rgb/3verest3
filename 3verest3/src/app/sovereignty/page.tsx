@@ -250,7 +250,7 @@ const SovereigntyPage = () => {
             </motion.p>
 
             {/* 3 Feature Columns */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center max-w-5xl mx-auto py-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12 text-center max-w-5xl mx-auto py-12">
               {[
                 {
                   Icon: Globe,
@@ -314,7 +314,7 @@ const SovereigntyPage = () => {
             </p>
 
             {/* Interactive Glass Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12 max-w-6xl mx-auto">
               {[
                 {
                   title: 'Built on Sovereign Cloud Capsules',

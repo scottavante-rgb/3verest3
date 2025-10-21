@@ -87,7 +87,7 @@ const Footer = () => {
             }`}
           >
             <span className="hidden sm:inline">ISO 27001 • SOC 2 Type II • NHS DSPT • GDPR • HSCN • GAIA-X • CSA STAR • IRAP (pending)</span>
-            <span className="sm:hidden">ISO 27001 • SOC 2 • GDPR • HSCN</span>
+            <span className="sm:hidden text-[0.7rem] whitespace-nowrap">ISO 27001 • SOC 2 • GDPR • HSCN</span>
           </motion.a>
 
           {/* Copyright */}
@@ -103,5 +103,6 @@ const Footer = () => {
 };
 
 export default Footer;
+
 
 

@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/contexts/theme-context";
 import ThemeTransitionWrapper from "@/components/ui/theme-transition-wrapper";
 import SmoothScroll from "@/components/ui/smooth-scroll";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -44,6 +45,7 @@ export default function RootLayout({
             {children}
           </ThemeTransitionWrapper>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

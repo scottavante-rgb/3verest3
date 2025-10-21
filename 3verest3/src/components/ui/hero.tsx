@@ -73,7 +73,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
           className="mb-4"
         >
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight text-white threeverest-glow" style={{ fontFamily: 'var(--font-playfair)' }}>
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-normal tracking-tight text-white threeverest-glow" style={{ fontFamily: 'var(--font-playfair)' }}>
             Sovereign Healthcare Cloud.
           </h1>
         </motion.div>
@@ -85,7 +85,7 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.5, ease: 'easeOut' }}
           className="mb-12"
         >
-          <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#00FFC2]/70 font-light tracking-wide">
+          <p className="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-[#00FFC2]/70 font-light tracking-wide">
             Reinvented.
           </p>
         </motion.div>

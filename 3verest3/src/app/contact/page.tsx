@@ -40,7 +40,7 @@ const ContactPage = () => {
             className="mb-32 text-center"
           >
             <h1
-              className="text-5xl md:text-6xl lg:text-7xl font-serif tracking-tight leading-tight mb-8"
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif tracking-tight leading-tight mb-8"
               style={{ fontFamily: 'var(--font-playfair)', color: '#0B0C0D' }}
             >
               Let&apos;s build the future
@@ -143,8 +143,116 @@ const ContactPage = () => {
 
           </div>
 
+          {/* Support Section */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mb-32"
+          >
+            <div className="text-center mb-12">
+              <h2
+                className="text-4xl md:text-5xl font-serif mb-4"
+                style={{ fontFamily: 'var(--font-playfair)', color: '#0B0C0D' }}
+              >
+                Support
+              </h2>
+              <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+                Our dedicated support team is available to assist you across multiple regions.
+                Reach out to us for technical support, account inquiries, or general assistance.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+              {/* UK Support */}
+              <motion.div
+                whileHover={{
+                  y: -10,
+                  boxShadow: '0 20px 60px rgba(0, 170, 136, 0.15)',
+                }}
+                transition={{ duration: 0.3 }}
+                className="bg-white/60 backdrop-blur-sm rounded-3xl p-8 shadow-lg border border-gray-100 transition-all duration-300"
+              >
+                <div className="flex flex-col items-center gap-4">
+                  <div className="p-3 rounded-2xl bg-[#00FFC2]/10">
+                    <Phone size={32} weight="light" className="text-[#00aa88]" />
+                  </div>
+                  <h3
+                    className="text-2xl font-serif"
+                    style={{ fontFamily: 'var(--font-playfair)', color: '#0B0C0D' }}
+                  >
+                    UK Support
+                  </h3>
+                  <a
+                    href="tel:+442032869870"
+                    className="text-[#00aa88] hover:text-[#00FFC2] transition-colors duration-200 text-lg font-medium"
+                  >
+                    +44 (0) 20 3286 9870
+                  </a>
+                </div>
+              </motion.div>
+
+              {/* US Support */}
+              <motion.div
+                whileHover={{
+                  y: -10,
+                  boxShadow: '0 20px 60px rgba(0, 170, 136, 0.15)',
+                }}
+                transition={{ duration: 0.3 }}
+                className="bg-white/60 backdrop-blur-sm rounded-3xl p-8 shadow-lg border border-gray-100 transition-all duration-300"
+              >
+                <div className="flex flex-col items-center gap-4">
+                  <div className="p-3 rounded-2xl bg-[#00FFC2]/10">
+                    <Phone size={32} weight="light" className="text-[#00aa88]" />
+                  </div>
+                  <h3
+                    className="text-2xl font-serif"
+                    style={{ fontFamily: 'var(--font-playfair)', color: '#0B0C0D' }}
+                  >
+                    US Support
+                  </h3>
+                  <a
+                    href="tel:+14243721422"
+                    className="text-[#00aa88] hover:text-[#00FFC2] transition-colors duration-200 text-lg font-medium"
+                  >
+                    +1 (0) 424 372 1422
+                  </a>
+                </div>
+              </motion.div>
+
+              {/* AU Support */}
+              <motion.div
+                whileHover={{
+                  y: -10,
+                  boxShadow: '0 20px 60px rgba(0, 170, 136, 0.15)',
+                }}
+                transition={{ duration: 0.3 }}
+                className="bg-white/60 backdrop-blur-sm rounded-3xl p-8 shadow-lg border border-gray-100 transition-all duration-300"
+              >
+                <div className="flex flex-col items-center gap-4">
+                  <div className="p-3 rounded-2xl bg-[#00FFC2]/10">
+                    <Phone size={32} weight="light" className="text-[#00aa88]" />
+                  </div>
+                  <h3
+                    className="text-2xl font-serif"
+                    style={{ fontFamily: 'var(--font-playfair)', color: '#0B0C0D' }}
+                  >
+                    AU Support
+                  </h3>
+                  <a
+                    href="tel:+61290904838"
+                    className="text-[#00aa88] hover:text-[#00FFC2] transition-colors duration-200 text-lg font-medium"
+                  >
+                    +61 (0) 2 9090 4838
+                  </a>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+
           {/* Office Locations */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-32 mt-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-32 mt-16">
             {/* London Office */}
             <motion.div
               variants={fadeUp}
@@ -174,7 +282,7 @@ const ContactPage = () => {
                     London
                   </h3>
                 </div>
-                <div className="text-gray-600 leading-relaxed">
+                <div className="text-gray-600 leading-relaxed break-words">
                   <p>63 St Mary Axe</p>
                   <p>Floor 2</p>
                   <p>London EC3A 8AA</p>
@@ -220,7 +328,7 @@ const ContactPage = () => {
                     Los Angeles
                   </h3>
                 </div>
-                <div className="text-gray-600 leading-relaxed">
+                <div className="text-gray-600 leading-relaxed break-words">
                   <p>201 Wilshire Blvd</p>
                   <p>Ste A34</p>
                   <p>Santa Monica</p>
@@ -267,7 +375,7 @@ const ContactPage = () => {
                     Sydney
                   </h3>
                 </div>
-                <div className="text-gray-600 leading-relaxed">
+                <div className="text-gray-600 leading-relaxed break-words">
                   <p>9-13 Bronte Road</p>
                   <p>Level 1</p>
                   <p>Bondi Junction</p>
@@ -314,7 +422,7 @@ const ContactPage = () => {
                     Berlin
                   </h3>
                 </div>
-                <div className="text-gray-600 leading-relaxed">
+                <div className="text-gray-600 leading-relaxed break-words">
                   <p>Kurfürstendamm 195</p>
                   <p>3rd Floor</p>
                   <p>10707 Berlin</p>
