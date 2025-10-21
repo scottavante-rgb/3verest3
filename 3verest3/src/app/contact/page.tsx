@@ -186,7 +186,7 @@ const ContactPage = () => {
                   </h3>
                   <a
                     href="tel:+442032869870"
-                    className="text-[#00aa88] hover:text-[#00FFC2] transition-colors duration-200 text-lg font-medium"
+                    className="text-[#00aa88] hover:text-[#00FFC2] transition-colors duration-200 text-sm sm:text-base md:text-lg font-medium whitespace-nowrap"
                   >
                     +44 (0) 20 3286 9870
                   </a>
@@ -214,7 +214,7 @@ const ContactPage = () => {
                   </h3>
                   <a
                     href="tel:+14243721422"
-                    className="text-[#00aa88] hover:text-[#00FFC2] transition-colors duration-200 text-lg font-medium"
+                    className="text-[#00aa88] hover:text-[#00FFC2] transition-colors duration-200 text-sm sm:text-base md:text-lg font-medium whitespace-nowrap"
                   >
                     +1 (0) 424 372 1422
                   </a>
@@ -242,7 +242,7 @@ const ContactPage = () => {
                   </h3>
                   <a
                     href="tel:+61290904838"
-                    className="text-[#00aa88] hover:text-[#00FFC2] transition-colors duration-200 text-lg font-medium"
+                    className="text-[#00aa88] hover:text-[#00FFC2] transition-colors duration-200 text-sm sm:text-base md:text-lg font-medium whitespace-nowrap"
                   >
                     +61 (0) 2 9090 4838
                   </a>
@@ -291,7 +291,7 @@ const ContactPage = () => {
                   <Phone size={18} weight="light" className="text-[#00aa88]" />
                   <a
                     href="tel:+442032869870"
-                    className="text-[#00aa88] hover:text-[#00FFC2] transition-colors duration-200 font-medium"
+                    className="text-[#00aa88] hover:text-[#00FFC2] transition-colors duration-200 font-medium text-sm sm:text-base whitespace-nowrap"
                   >
                     +44 (0)20 3286 9870
                   </a>
@@ -338,7 +338,7 @@ const ContactPage = () => {
                   <Phone size={18} weight="light" className="text-[#00aa88]" />
                   <a
                     href="tel:+14243721422"
-                    className="text-[#00aa88] hover:text-[#00FFC2] transition-colors duration-200 font-medium"
+                    className="text-[#00aa88] hover:text-[#00FFC2] transition-colors duration-200 font-medium text-sm sm:text-base whitespace-nowrap"
                   >
                     +1 424 372 1422
                   </a>
@@ -385,7 +385,7 @@ const ContactPage = () => {
                   <Phone size={18} weight="light" className="text-[#00aa88]" />
                   <a
                     href="tel:+61290904838"
-                    className="text-[#00aa88] hover:text-[#00FFC2] transition-colors duration-200 font-medium"
+                    className="text-[#00aa88] hover:text-[#00FFC2] transition-colors duration-200 font-medium text-sm sm:text-base whitespace-nowrap"
                   >
                     +61 (0)2 9090 4838
                   </a>
