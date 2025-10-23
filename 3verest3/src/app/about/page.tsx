@@ -5,6 +5,7 @@ import Navigation from '@/components/ui/navigation';
 import Footer from '@/components/ui/footer';
 import WorldMap from '@/components/ui/world-map';
 import { BackgroundLines } from '@/components/ui/background-lines';
+import Link from 'next/link';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40, scale: 1.03 },
@@ -102,7 +103,7 @@ const AboutPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="mb-32 text-center"
+            className="mb-16 text-center"
           >
             <h1
               className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif tracking-tight leading-tight mb-8"
@@ -118,6 +119,34 @@ const AboutPage = () => {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="h-[2px] w-40 bg-gradient-to-r from-transparent via-[#00FFC2]/50 to-transparent mx-auto"
             />
+          </motion.div>
+
+          {/* Call-to-Action Pills */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            className="mb-32 flex flex-col sm:flex-row gap-4 justify-center items-center"
+          >
+            <Link href="/the-difference/partners">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-4 rounded-full bg-gray-900 text-white hover:bg-[#00D6A3] transition-all duration-300 text-sm font-medium tracking-wide uppercase shadow-lg hover:shadow-xl"
+              >
+                Partners & Case Studies
+              </motion.button>
+            </Link>
+
+            <Link href="/trust">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-4 rounded-full bg-gray-900 text-white hover:bg-[#00D6A3] transition-all duration-300 text-sm font-medium tracking-wide uppercase shadow-lg hover:shadow-xl"
+              >
+                Trust & Compliance
+              </motion.button>
+            </Link>
           </motion.div>
 
           {sections.map((section, index) => (
@@ -302,22 +331,6 @@ const AboutPage = () => {
               />
             </motion.div>
 
-            {/* Trust & Compliance Link */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1 }}
-              viewport={{ once: true }}
-              className="mt-16"
-            >
-              <motion.a
-                href="/trust"
-                whileHover={{ scale: 1.02 }}
-                className="inline-block px-8 py-4 rounded-full bg-gray-900 text-white hover:bg-[#00D6A3] transition-all duration-300 text-sm font-medium tracking-wide uppercase shadow-lg hover:shadow-xl"
-              >
-                Trust & Compliance
-              </motion.a>
-            </motion.div>
           </div>
         </motion.section>
       </main>
