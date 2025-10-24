@@ -16,7 +16,7 @@ const Navigation = () => {
   const { theme } = useTheme();
 
   // Determine if we're on a light background page
-  const isLightPage = pathname === '/about' || pathname === '/contact' || pathname === '/trust';
+  const isLightPage = pathname === '/about' || pathname === '/contact' || pathname === '/trust' || pathname === '/technology';
 
   // Track scroll for opacity change
   useEffect(() => {
@@ -42,6 +42,7 @@ const Navigation = () => {
 
   const navItems = [
     { name: 'About', href: '/about' },
+    { name: 'Technology', href: '/technology' },
     { name: 'Our Cloud', href: '/our-cloud' },
     { name: 'Sovereignty', href: '/sovereignty' },
     { name: 'The Difference', href: '/what-makes-us-different' },
@@ -233,6 +234,8 @@ const Navigation = () => {
 };
 
 export default Navigation;
+
+
 
 
 

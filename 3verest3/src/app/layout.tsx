@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display, Montserrat } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/contexts/theme-context";
+import { CookieConsentProvider } from "@/contexts/cookie-consent-context";
 import ThemeTransitionWrapper from "@/components/ui/theme-transition-wrapper";
 import SmoothScroll from "@/components/ui/smooth-scroll";
+import { CookieConsent } from "@/components/cookie-consent";
 import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
@@ -55,10 +57,13 @@ export default function RootLayout({
         className={`${inter.variable} ${playfair.variable} ${montserrat.variable} antialiased`}
       >
         <ThemeProvider>
-          <ThemeTransitionWrapper>
-            <SmoothScroll />
-            {children}
-          </ThemeTransitionWrapper>
+          <CookieConsentProvider>
+            <ThemeTransitionWrapper>
+              <SmoothScroll />
+              {children}
+            </ThemeTransitionWrapper>
+            <CookieConsent />
+          </CookieConsentProvider>
         </ThemeProvider>
         <Analytics />
       </body>

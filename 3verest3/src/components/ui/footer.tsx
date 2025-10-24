@@ -3,11 +3,13 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { useTheme } from '@/contexts/theme-context';
+import { useCookieConsent } from '@/contexts/cookie-consent-context';
 
 const Footer = () => {
   const [isIdle, setIsIdle] = useState(false);
   const shouldReduceMotion = useReducedMotion();
   const { theme } = useTheme();
+  const { openCookieSettings } = useCookieConsent();
 
   useEffect(() => {
     let idleTimer: NodeJS.Timeout;
@@ -90,6 +92,19 @@ const Footer = () => {
             <span className="sm:hidden text-[0.7rem] whitespace-nowrap">ISO 27001 • SOC 2 • GDPR • HSCN</span>
           </motion.a>
 
+          {/* Cookie Settings Link */}
+          <motion.button
+            onClick={openCookieSettings}
+            whileHover={{ scale: 1.05 }}
+            className={`text-xs font-light tracking-wider transition-all duration-300 ${
+              theme === 'light'
+                ? 'text-gray-500 hover:text-[#00D6A3]'
+                : 'text-white/40 hover:text-[#00D6A3] hover:drop-shadow-[0_0_8px_rgba(0,214,163,0.5)]'
+            }`}
+          >
+            Cookie Settings
+          </motion.button>
+
           {/* Copyright */}
           <p className={`text-sm font-light tracking-wide ${
             theme === 'light' ? 'text-gray-600' : 'text-white/50'
@@ -103,6 +118,8 @@ const Footer = () => {
 };
 
 export default Footer;
+
+
 
 
 
