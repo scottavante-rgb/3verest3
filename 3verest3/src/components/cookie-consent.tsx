@@ -159,7 +159,7 @@ export function CookieConsent() {
               </h2>
 
               <p className="text-base text-[#666] leading-relaxed mb-8 font-light">
-                You control your privacy. Choose which types of cookies you're comfortable with — you can update these settings anytime.
+                You control your privacy. Choose which types of cookies you&apos;re comfortable with — you can update these settings anytime.
               </p>
 
               {/* Cookie Type Toggles */}

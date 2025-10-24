@@ -54,7 +54,7 @@ export default function TechnologyArt() {
             transition={{ duration: 1, delay: 0.2, ease: [0.19, 1, 0.22, 1] }}
             className="text-lg md:text-xl text-[#666] max-w-3xl mx-auto leading-relaxed font-light mb-20"
           >
-            We spend years perfecting how our infrastructure looks, feels, and performs, so maybe it's not such a wild thought.
+            We spend years perfecting how our infrastructure looks, feels, and performs, so maybe it&apos;s not such a wild thought.
             Our 3verest Cloud Capsules are engineered with precision, symmetry, and balance. The result is something that, in the right light,
             feels almost… artistic.
           </motion.p>
@@ -88,7 +88,7 @@ export default function TechnologyArt() {
             className="max-w-2xl mx-auto"
           >
             <p className="text-sm text-[#666] font-light leading-relaxed italic">
-              "The 3verest Stack", a conceptual illustration of our OpenStack, NetApp, and Altitude AI architecture.
+              &ldquo;The 3verest Stack&rdquo;, a conceptual illustration of our OpenStack, NetApp, and Altitude AI architecture.
             </p>
             <p className="text-sm text-[#999] font-light mt-2">
               We like to joke that our technology is so elegant it could hang in a gallery. Just kidding, mostly.
@@ -143,7 +143,7 @@ export default function TechnologyArt() {
             </p>
 
             <p className="text-[#444] font-normal">
-              Because in healthcare, elegance isn't aesthetic, it's reliability made visible.
+              Because in healthcare, elegance isn&apos;t aesthetic, it&apos;s reliability made visible.
             </p>
           </motion.div>
         </div>

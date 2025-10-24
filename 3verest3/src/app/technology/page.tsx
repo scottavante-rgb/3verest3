@@ -2,7 +2,6 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import Image from 'next/image';
 import Navigation from '@/components/ui/navigation';
 import Footer from '@/components/ui/footer';
 
@@ -84,7 +83,7 @@ export default function Technology() {
             style={{ fontFamily: 'var(--font-inter)' }}
           >
             3verest builds its technology on open foundations. Our entire sovereign healthcare cloud is powered by OpenStack,
-            strengthened by NetApp, and orchestrated by Altitude AI — a seamless union of open-source freedom, enterprise strength,
+            strengthened by NetApp, and orchestrated by Altitude AI, a seamless union of open-source freedom, enterprise strength,
             and intelligent automation.
           </motion.p>
         </motion.div>
@@ -162,7 +161,7 @@ export default function Technology() {
             <div className="space-y-6 text-lg md:text-xl text-[#444] leading-relaxed font-light mb-12">
               <p>
                 To complement our open architecture, we partner with NetApp, the global leader in storage technology.
-                Together, we've engineered a unified data fabric that combines OpenStack's flexibility with NetApp's resilience and performance.
+                Together, we&apos;ve engineered a unified data fabric that combines OpenStack&apos;s flexibility with NetApp&apos;s resilience and performance.
               </p>
 
               <p>
@@ -180,7 +179,7 @@ export default function Technology() {
               className="border-l-2 border-[#00FFC2] pl-8 py-4 my-16"
             >
               <p className="text-2xl md:text-3xl font-light text-[#222] italic">
-                "Open innovation meets enterprise precision."
+                &ldquo;Open innovation meets enterprise precision.&rdquo;
               </p>
             </motion.blockquote>
 
@@ -420,7 +419,7 @@ export default function Technology() {
               className="relative py-16 text-center"
             >
               <p className="text-3xl md:text-4xl lg:text-5xl font-light text-[#222] italic tracking-tight">
-                "We don't rent clouds. We build them."
+                &ldquo;We don&apos;t rent clouds. We build them.&rdquo;
               </p>
             </motion.div>
           </motion.div>
@@ -448,7 +447,7 @@ export default function Technology() {
             transition={{ duration: 1, delay: 0.5 }}
             className="text-sm text-[#999] font-light mb-20"
           >
-            Some say infrastructure can't be{' '}
+            Some say infrastructure can&apos;t be{' '}
             <a
               href="/technology/art"
               className="text-[#666] hover:text-[#00FFC2] transition-colors duration-300 relative group"
