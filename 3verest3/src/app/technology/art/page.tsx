@@ -4,15 +4,20 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Navigation from '@/components/ui/navigation';
 import Footer from '@/components/ui/footer';
-
-export const metadata = {
-  robots: {
-    index: false,
-    follow: false,
-  },
-};
+import { useEffect } from 'react';
 
 export default function TechnologyArt() {
+  // Set noindex meta tag for this page
+  useEffect(() => {
+    const metaRobots = document.createElement('meta');
+    metaRobots.name = 'robots';
+    metaRobots.content = 'noindex, nofollow';
+    document.head.appendChild(metaRobots);
+
+    return () => {
+      document.head.removeChild(metaRobots);
+    };
+  }, []);
   return (
     <>
       <Navigation />
