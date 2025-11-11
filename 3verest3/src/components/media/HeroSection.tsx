@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 const HeroSection = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [particles, setParticles] = useState<Array<{ id: number; x: number; y: number; targetX: number; targetY: number }>>([]);
-  const filters = ['All', 'Announcements', 'Features', 'Events', 'Summit AI'];
+  const filters = ['All', 'Announcements', 'Features', 'Events'];
 
   useEffect(() => {
     // Generate particles only on client side after component mounts
