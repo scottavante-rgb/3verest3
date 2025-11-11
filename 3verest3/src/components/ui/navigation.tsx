@@ -42,6 +42,7 @@ const Navigation = () => {
 
   const navItems = [
     { name: 'About', href: '/about' },
+    { name: 'Media', href: '/media' },
     { name: 'Technology', href: '/technology' },
     { name: 'Our Cloud', href: '/our-cloud' },
     { name: 'Sovereignty', href: '/sovereignty' },
@@ -99,7 +100,7 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="ml-10 flex items-center space-x-6 lg:space-x-7">
               {navItems.map((item) => (
                 <motion.div
                   key={item.name}
@@ -110,13 +111,15 @@ const Navigation = () => {
                   <Link
                     href={item.href}
                     onClick={handleLinkClick}
-                    className={`text-xs lg:text-sm font-medium uppercase tracking-wider transition-all duration-300 relative group block overflow-hidden ${
+                    className={`text-xs font-semibold uppercase tracking-wide transition-all duration-300 relative group block overflow-hidden ${
                       isLightPage
                         ? 'text-gray-700 hover:text-gray-900'
                         : 'text-white/80 hover:text-white'
                     }`}
                     style={{
                       transition: 'text-shadow 0.3s ease-out',
+                      fontFamily: 'var(--font-inter)',
+                      letterSpacing: '0.08em',
                     }}
                   >
                     <span className="relative z-10 group-hover:[text-shadow:0_0_8px_#00FFC2]">
@@ -234,6 +237,7 @@ const Navigation = () => {
 };
 
 export default Navigation;
+
 
 
 

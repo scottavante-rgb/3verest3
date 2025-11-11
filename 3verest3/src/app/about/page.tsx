@@ -220,7 +220,7 @@ const AboutPage = () => {
               Global Sovereign Infrastructure
             </h2>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-light" style={{ color: '#3a3a3a', lineHeight: '1.8' }}>
-              14 sovereign cloud locations across three continents. Each region operates independently,
+              19 sovereign cloud locations across four continents. Each region operates independently,
               ensuring data remains within jurisdictional boundaries while delivering global performance.
             </p>
           </div>
@@ -269,6 +269,18 @@ const AboutPage = () => {
               },
               {
                 start: { lat: 52.5200, lng: 13.4050 }, // Berlin
+                end: { lat: 53.5511, lng: 9.9937 }, // Hamburg
+              },
+              {
+                start: { lat: 52.5200, lng: 13.4050 }, // Berlin
+                end: { lat: 48.1351, lng: 11.5820 }, // Munich
+              },
+              {
+                start: { lat: 52.5200, lng: 13.4050 }, // Berlin
+                end: { lat: 50.1109, lng: 8.6821 }, // Frankfurt
+              },
+              {
+                start: { lat: 52.5200, lng: 13.4050 }, // Berlin
                 end: { lat: 52.3676, lng: 4.9041 }, // Amsterdam
               },
               // Transatlantic
@@ -280,6 +292,15 @@ const AboutPage = () => {
               {
                 start: { lat: 51.5074, lng: -0.1278 }, // London
                 end: { lat: 25.2048, lng: 55.2708 }, // Dubai
+              },
+              // Asia-Pacific connection
+              {
+                start: { lat: 25.2048, lng: 55.2708 }, // Dubai
+                end: { lat: 1.3521, lng: 103.8198 }, // Singapore
+              },
+              {
+                start: { lat: -33.8688, lng: 151.2093 }, // Sydney
+                end: { lat: 1.3521, lng: 103.8198 }, // Singapore
               },
             ]}
             />
