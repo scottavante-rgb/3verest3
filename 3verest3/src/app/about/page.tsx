@@ -37,8 +37,8 @@ const AboutPage = () => {
       headline: 'Why We Exist',
       body: [
         "We built 3verest because the world's most vital data, the information that holds our bodies, our identities, and our futures, has been entrusted to systems that were never built to protect it.",
-        "For us, sovereignty isn't about isolation or nationalism; it's about trust. It's about ensuring that healthcare, the most human of all sciences, operates within the moral and technical boundaries that respect the people it serves.",
-        'We exist to make that possible.',
+        "For us, sovereignty isn't about isolation or nationalism; it's about trust. It's about ensuring that healthcare, the most human of all sciences, operates within moral and technical boundaries that respect the people it serves.",
+        'We exist to make that possible, delivering complete end to end cloud solutions for healthcare providers and OEMs alike, from design and migration through to build, security, management, and ongoing support.',
       ],
     },
     {
