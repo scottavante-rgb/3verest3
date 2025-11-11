@@ -36,7 +36,7 @@ The expansion positions Germany as a central hub in 3verest's Europe 2030 vision
 
 A Stronger, Smarter Cloud for German Healthcare
 
-The three new sovereign cloud capsules, located in Frankfurt, Munich, and Berlin, are each engineered specifically for healthcare imaging, data, and AI workloads. They provide region-locked sovereignty, sub-150 millisecond access performance, and 99.999% uptime, with full compliance under GDPR, BSI C5, and emerging EU AI Act frameworks.
+The three new sovereign cloud capsules, located in Frankfurt, Munich, and Berlin, are each engineered specifically for healthcare imaging, data, and AI workloads. They provide region-locked sovereignty, sub-150 millisecond access performance, and 99.999% uptime, with full compliance under GDPR, BSI-C5, and emerging EU AI Act frameworks.
 
 Each site integrates with 3verest's Summit AI layer, an adaptive intelligence framework that blends large language model reasoning with task-specific expert systems, allowing German healthcare organisations to automate workflows, accelerate reporting, and derive insight from data without ever leaving national boundaries.
 

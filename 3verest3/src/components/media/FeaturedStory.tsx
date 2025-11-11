@@ -13,7 +13,7 @@ const FeaturedStory = () => {
     headline: '3verest Unveils the World\'s First Sovereign Imaging Platform with Summit AI Intelligence',
     summary:
       'Chicago, RSNA 2025. 3verest announces the 3verest Imaging Platform (3IP), the world\'s first sovereign, intelligent, and natively interoperable foundation for medical imaging innovation.',
-    body: `Chicago | 30 November 2025 | RSNA 2025
+    body: `Chicago | 11 November 2025 | RSNA 2025
 
 3verest, the global leader in sovereign private cloud for healthcare, today announced the launch of the 3verest Imaging Platform (3IP) at RSNA 2025 in Chicago. 3IP represents a world-class foundation for medical imaging and intelligent data management, built specifically for the demands of modern healthcare.
 
@@ -79,7 +79,7 @@ Global Availability
 
 For media enquiries, contact press@3verest.com`,
     readTime: '6 min read',
-    date: '30 November 2025',
+    date: '11 November 2025',
     region: 'Chicago, USA',
   };
 

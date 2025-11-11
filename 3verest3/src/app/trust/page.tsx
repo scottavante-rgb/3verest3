@@ -74,7 +74,7 @@ const pipelineCertifications: PipelineCertification[] = [
     targetDate: 'Target Q1-2026',
   },
   {
-    title: 'BSI C5 (Germany)',
+    title: 'BSI-C5 (Germany)',
     description: 'Cloud Computing Compliance Controls Catalogue',
     targetDate: 'Target Q1-2026',
   },
