@@ -162,7 +162,7 @@ Remember: You represent the future of healthcare infrastructure and intelligent 
  */
 export function createContextualizedPrompt(
   userQuery: string,
-  knowledgeBase: string
+  _knowledgeBase: string
 ): string {
   return `Based on the 3verest Knowledge Base, please answer the following question:
 

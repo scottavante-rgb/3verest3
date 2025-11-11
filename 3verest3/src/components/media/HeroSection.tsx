@@ -75,7 +75,7 @@ const HeroSection = () => {
           transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="text-base sm:text-lg md:text-xl text-white/80 mb-6 max-w-3xl mx-auto"
         >
-          The world's most trusted foundation for medical data — told one milestone at a time.
+          The world&apos;s most trusted foundation for medical data — told one milestone at a time.
         </motion.p>
 
         {/* Filter Chips */}

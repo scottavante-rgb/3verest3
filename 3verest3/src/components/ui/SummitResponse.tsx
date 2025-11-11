@@ -24,8 +24,8 @@ export function SummitResponse({
   isLoading = false,
   onClose,
   onSuggestionClick,
-  isMinimized = false,
-  onToggleMinimize,
+  isMinimized: _isMinimized = false,
+  onToggleMinimize: _onToggleMinimize,
 }: SummitResponseProps) {
   const suggestions = [
     'GPU capabilities',
