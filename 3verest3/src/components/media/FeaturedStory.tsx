@@ -45,7 +45,7 @@ Summit AI: An Independent Sovereign Intelligence Layer
 
 Alongside the 3verest Imaging Platform, 3verest has partnered with Summit AI to introduce an additional layer of contextual, sovereign intelligence that can be applied across customers' existing healthcare environments, whether on 3IP, on-premises, or within regional sovereign clouds.
 
-Summit AI operates on its own proprietary Mixture of Experts (MoE) and Large Language Model (LLM) architecture. It is entirely sovereign, trained and hosted within secure 3verest regions, with no public or third-party AI models involved.
+Summit AI operates on its own proprietary Mixture of Experts (MoE) and Large Language Model (LLM) architecture. It is entirely sovereign, trained and hosted within secure 3verest regions.
 
 This new layer transforms healthcare data into understanding. Summit AI brings contextual awareness, adaptive workflow automation, and insight generation that evolves with clinical and operational data across systems:
 
