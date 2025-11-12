@@ -423,9 +423,9 @@ const ContactPage = () => {
                   </h3>
                 </div>
                 <div className="text-gray-600 leading-relaxed break-words">
-                  <p>Kurfürstendamm 195</p>
-                  <p>3rd Floor</p>
-                  <p>10707 Berlin</p>
+                  <p>Jaegerstraße 54</p>
+                  <p>Berlin</p>
+                  <p>10117</p>
                   <p>Germany</p>
                 </div>
               </div>
