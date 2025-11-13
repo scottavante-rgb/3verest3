@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion
 import { useRef } from 'react';
 import Navigation from '@/components/ui/navigation';
 import Footer from '@/components/ui/footer';
-import { ArrowDown, Cpu, Database, Globe, Brain, Sparkle } from 'phosphor-react';
+import { ArrowDown, Cpu, Database, Globe, Brain, Sparkle, Microphone } from 'phosphor-react';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -74,6 +74,16 @@ const FuturesPage = () => {
       benefit: 'For healthcare software companies, this means they can integrate intelligence into their applications without sending data beyond their borders. For hospitals and research groups, it unlocks the ability to analyse, summarise, and predict from their own datasets privately, ethically, and locally. No hyperscaler dependency. No egress fees. Only pure, sovereign intelligence built on infrastructure that understands healthcare. 3verest becomes not just a platform for hosting but a platform for thinking, learning, and advancing.',
       video: '/videos/llm.mp4',
       gradient: 'from-[#00FFC2]/20 via-[#00D4FF]/10 to-transparent',
+    },
+    {
+      icon: Microphone,
+      title: '3cko – The Voice of Healthcare',
+      subtitle: 'Futures 2030 Spotlight',
+      idea: '3cko is a new sovereign voice to text platform created inside the 3verest 2030 Future Lab, developed in close collaboration with the team and technologies from our sister company Summit Ai. It represents a step forward in how clinical documentation and voice driven workflows will operate across modern healthcare environments. 3cko blends advanced speech recognition with a large language model and a Mixture of Experts framework refined using Summit Ai research. This combination allows the platform to interpret diagnostic language, clinical nuance, structured medical data and workflow intent in a way that traditional voice engines were never designed to support. The result is a system that does not simply transcribe but understands. A defining element of 3cko is its deployment model. The platform runs entirely inside the 3verest Sovereign Cloud and sits directly beside customer workloads. This placement delivers extremely low latency, ensures data never leaves the secure regional boundary and removes the external dependencies that have historically limited voice technology in healthcare. Every component is sovereign by design.',
+      benefit: '3cko is engineered to integrate smoothly with existing clinical systems. It works alongside all major EHR, PACS and RIS platforms, lifting the accuracy, speed and consistency of clinical documentation with no disruption to established workflows. It is designed to meet clinicians where they already are, not force them somewhere new. We are currently working with a small and highly controlled group to validate the 3cko SDK and API. This approach ensures precision, reliability and seamless integration as we prepare for broader rollout. 3cko will enter controlled testing ahead of a planned 2026 release and will be offered exclusively to customers operating on the 3verest Sovereign Cloud. 3cko is also a preview of what is coming next from 3verest. It forms the beginning of a new portfolio of sovereign applications and intelligent services built to enhance the speed, quality and safety of healthcare operations across the world. Each one is designed to run beside the workloads that matter, with the security, trust and performance that only a sovereign cloud can deliver. 3cko is the voice of healthcare. Sovereign. Intelligent. Designed for the future.',
+      video: '/3cko.png',
+      mediaType: 'image',
+      gradient: 'from-[#00D4FF]/20 via-[#00FFC2]/10 to-transparent',
     },
   ];
 
@@ -231,7 +241,7 @@ const FuturesPage = () => {
               </div>
             </motion.div>
 
-            {/* Right: Video */}
+            {/* Right: Video or Image */}
             <motion.div
               initial={{ opacity: 0, scale: 1.05 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -239,19 +249,30 @@ const FuturesPage = () => {
               transition={{ duration: 1.2, ease: 'easeOut' }}
               className="relative group"
             >
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="rounded-2xl shadow-2xl w-full h-auto object-cover border border-white/10"
-                style={{
-                  filter: 'brightness(0.9) contrast(1.1)',
-                }}
-              >
-                <source src={project.video} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              {project.mediaType === 'image' ? (
+                <img
+                  src={project.video}
+                  alt={project.title}
+                  className="rounded-2xl shadow-2xl w-full h-auto object-cover border border-white/10"
+                  style={{
+                    filter: 'brightness(0.9) contrast(1.1)',
+                  }}
+                />
+              ) : (
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="rounded-2xl shadow-2xl w-full h-auto object-cover border border-white/10"
+                  style={{
+                    filter: 'brightness(0.9) contrast(1.1)',
+                  }}
+                >
+                  <source src={project.video} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              )}
               {/* Mint overlay on hover */}
               <div className="absolute inset-0 rounded-2xl bg-[#00FFC2]/0 group-hover:bg-[#00FFC2]/5 transition-all duration-500 pointer-events-none" />
             </motion.div>
