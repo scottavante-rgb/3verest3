@@ -8,79 +8,33 @@ const FeaturedStory = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const story = {
-    image: '/3ip.png',
+    image: '/3cko.png',
     tag: 'Announcement',
-    headline: '3verest Unveils the World\'s First Sovereign Imaging Platform with Summit AI Intelligence',
+    headline: '3verest announces 3cko: the new voice in healthcare',
     summary:
-      'Chicago, RSNA 2025. 3verest announces the 3verest Imaging Platform (3IP), the world\'s first sovereign, intelligent, and natively interoperable foundation for medical imaging innovation.',
-    body: `Chicago | 11 November 2025 | RSNA 2025
+      'Sydney, 13 November 2025. 3verest today announced the launch of 3cko, a sovereign medical voice solution that marks a significant expansion of the company\'s Future Labs program.',
+    body: `Sydney, 13 November 2025
 
-3verest, the global leader in sovereign private cloud for healthcare, today announced the launch of the 3verest Imaging Platform (3IP) at RSNA 2025 in Chicago. 3IP represents a world-class foundation for medical imaging and intelligent data management, built specifically for the demands of modern healthcare.
+3verest today announced the launch of 3cko, a sovereign medical voice solution that marks a significant expansion of the company's Future Labs program and its commitment to building the next generation of healthcare technology.
 
-Born from 3verest 2030 Future Labs
+3cko represents a new chapter for clinical transcription and real time medical audio services. Built within the 3verest sovereign cloud, and positioned directly beside customer workloads, 3cko delivers exceptionally low latency, high fidelity transcription and a medical vocabulary engine shaped by clinical practice. It is purpose built for radiology, pathology and wider healthcare environments where accuracy, privacy and immediacy matter.
 
-The 3verest Imaging Platform was conceived within 3verest 2030 Future Labs, the company's long-term innovation program dedicated to building the next generation of healthcare infrastructure.
+As a voice application, 3cko is designed to be simple, elegant and invisible. Clinicians activate it with a single action. The service captures spoken notes and observations, processes them securely within the sovereign cloud, and returns clean, contextually aware text ready to be placed into reports, worklists or clinical systems. No data leaves the sovereign boundary and no external AI services are used. 3cko is healthcare first in both intention and execution.
 
-3IP is a sovereign, intelligent, and interoperable foundation engineered for OEMs, PACS vendors, and diagnostic software providers who power global medical imaging. It enables partners to innovate freely without hyperscaler dependency, unpredictable cost, or compliance risk.
+The performance of 3cko is enabled by a fully controlled technology stack. It runs inside 3verest regions, close to PACS, RIS, reporting platforms and clinical datasets. This proximity allows the system to understand medical language with precision, adapt to local terminology, and deliver transcription at a speed that feels instantaneous. The result is a voice solution that becomes part of the clinical rhythm rather than a separate tool.
 
-3IP is not a product. It is the platform behind your platform, strengthening the infrastructure beneath the world's most trusted imaging systems and combining sovereignty, transparency, and diagnostic-grade performance.
+3verest is currently working with a small control group of partners who are integrating the 3cko SDK and API into their applications. This measured approach ensures that early adopters influence the refinement of the platform, shaping capabilities, feedback loops and the broader medical vocabulary engine. More information on this partner program will be released as 3cko moves through its phased introduction.
 
-A Sovereign Foundation for Imaging Innovation
+Scott Crawford, Founder and CEO of 3verest, said that 3cko reflects the natural evolution of the company's vision.
 
-3verest Imaging Platform unites control, performance, and regulatory assurance:
+"Our in house AI capability and our sovereign cloud foundation make services like 3cko not only possible, but logical. Healthcare deserves technology that is crafted for its reality. Real time voice is a natural extension of the trusted infrastructure we already run for radiology, pathology and wider clinical systems."
 
-• Jurisdictional assurance: Region-locked sovereign zones operated by 3verest, compliant with IRAP, ISO 27001, NHS DSPT, C5, and ISR.
+3cko will be available as a standalone service and as an integrated feature within platforms that build on the 3verest sovereign cloud. More technical information, product guidance and partner pathways will be added to the 3verest Futures 2030 program in the coming weeks.
 
-• Sub-second access: First-image latency target under 150 milliseconds.
-
-• AI-ready compute: GPU clusters for reconstruction, segmentation, and inference.
-
-• Predictive elasticity: Adaptive scaling for burst workloads.
-
-• Transparent economics: Fixed pricing, zero egress, and no hidden API fees.
-
-"While hyperscalers focus on scale, we focus on trust," said Scott Crawford, Founder and CEO of 3verest. "3IP gives healthcare organisations worldwide the foundation for performance, compliance, and complete control. We've built this platform to serve the most demanding imaging environments across 19 sovereign cloud locations on four continents."
-
-Summit AI: An Independent Sovereign Intelligence Layer
-
-Alongside the 3verest Imaging Platform, 3verest has partnered with Summit AI to introduce an additional layer of contextual, sovereign intelligence that can be applied across customers' existing healthcare environments, whether on 3IP, on-premises, or within regional sovereign clouds.
-
-Summit AI operates on its own proprietary Mixture of Experts (MoE) and Large Language Model (LLM) architecture. It is entirely sovereign, trained and hosted within secure 3verest regions.
-
-This new layer transforms healthcare data into understanding. Summit AI brings contextual awareness, adaptive workflow automation, and insight generation that evolves with clinical and operational data across systems:
-
-• Sovereign by design: All inference and learning occur within 3verest capsules; no data leaves jurisdiction.
-
-• Contextual intelligence: Models interpret workflow, language, and clinical intent in context.
-
-• Automation and insight: Converts imaging and operational data into structured intelligence for faster, safer decisions.
-
-• Summit Gain Index (SGI): Quantifies measurable improvements in productivity, accuracy, compliance, and capital efficiency.
-
-"Summit AI delivers contextual sovereign intelligence that can sit above any healthcare system," said Sheraz Bhatti, CTO of 3verest. "It brings the power of AI to where the data already lives, securely, privately, and intelligently."
-
-Built for Those Who Build Healthcare's Future
-
-3IP empowers technology providers to embed or co-brand sovereign imaging solutions:
-
-• Embedded OEM: 3IP powers partner platforms invisibly.
-
-• Co-branded editions: Sovereign-ready versions of partner products.
-
-• Dedicated tenants: Exclusive 3IP instances for enterprise clients.
-
-• Usage-linked licensing: Flexible models tied to SaaS growth.
-
-Each tier includes unlimited API calls, fixed regional pricing, and full audit transparency, protecting OEM margins while ensuring commercial sovereignty.
-
-Global Availability
-
-3verest Imaging Platform and Summit AI's sovereign intelligence layer will begin regional rollout in Q1 2026, with initial deployments across Europe, Australia, North America, Middle East, and Asia-Pacific regions where 3verest operates sovereign cloud infrastructure.
-
-For media enquiries, contact press@3verest.com`,
-    readTime: '6 min read',
-    date: '11 November 2025',
-    region: 'Chicago, USA',
+For further information, please contact 3verest.`,
+    readTime: '4 min read',
+    date: '13 November 2025',
+    region: 'Sydney, Australia',
   };
 
   return (
