@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import { Providers } from '../components/Providers'
+import { Analytics } from '@vercel/analytics/next'
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
@@ -14,6 +15,14 @@ export const metadata: Metadata = {
   keywords: 'prompt engineering, AI, artificial intelligence, machine learning, natural language processing',
   authors: [{ name: 'OhPrompt Team' }],
   viewport: 'width=device-width, initial-scale=1',
+  icons: {
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.ico', sizes: 'any' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
 }
 
 export default function RootLayout({
@@ -27,6 +36,7 @@ export default function RootLayout({
         <Providers>
           {children}
         </Providers>
+        <Analytics />
       </body>
     </html>
   )

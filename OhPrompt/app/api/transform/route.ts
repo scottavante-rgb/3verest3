@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { transformPrompt, PromptMode } from '@/lib/openai';
 import { getServerSession } from 'next-auth/next';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from '@/lib/auth';
 import { savePromptHistory } from '@/lib/supabase';
 
 export async function POST(request: NextRequest) {
@@ -15,14 +15,14 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (!mode || !['auto', 'easy', 'normal', 'expert'].includes(mode)) {
+    if (!mode || !['auto', 'expert'].includes(mode)) {
       return NextResponse.json(
         { error: 'Invalid mode' },
         { status: 400 }
       );
     }
 
-    const validTones = ['professional', 'playful', 'technical', 'poetic'];
+    const validTones = ['professional', 'playful', 'technical', 'poetic', 'witty', 'dry', 'harsh', 'brutal'];
     const selectedTone = tone && validTones.includes(tone) ? tone : 'professional';
     const isRemix = remix === true;
 
