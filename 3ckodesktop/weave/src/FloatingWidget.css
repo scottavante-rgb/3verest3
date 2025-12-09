@@ -1,0 +1,20 @@
+/* =============================================================================
+   FLOATING WIDGET - Global Overrides
+   ============================================================================= */
+
+/* Ensure full height */
+#root {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Drag region for Tauri */
+[data-tauri-drag-region] {
+  -webkit-app-region: drag;
+}
+
+[data-tauri-drag-region] button,
+[data-tauri-drag-region] input,
+[data-tauri-drag-region] a {
+  -webkit-app-region: no-drag;
+}
