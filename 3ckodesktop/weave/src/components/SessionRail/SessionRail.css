@@ -1,0 +1,126 @@
+/* =============================================================================
+   SESSION RAIL
+   ============================================================================= */
+
+.session-rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  height: 100%;
+}
+
+.session-rail__sessions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  flex: 1;
+}
+
+/* Session indicator */
+.session-indicator-wrapper {
+  position: relative;
+}
+
+.session-indicator {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--glass-surface-layer);
+  border: var(--glass-border-subtle);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.session-indicator:hover {
+  background: var(--glass-surface-hover);
+}
+
+.session-indicator--active {
+  border-color: var(--session-color);
+}
+
+.session-indicator__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--session-color);
+}
+
+.session-indicator__ring {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid var(--session-color);
+  opacity: 0.5;
+}
+
+/* Unread badge */
+.session-indicator__badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  background: #EF4444;
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Tooltip */
+.session-indicator__tooltip {
+  position: absolute;
+  left: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(15, 23, 42, 0.95);
+  border: var(--glass-border-subtle);
+  border-radius: var(--glass-radius-sm);
+  padding: var(--space-sm) var(--space-md);
+  min-width: 160px;
+  max-width: 220px;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.session-indicator__tooltip-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2px;
+}
+
+.session-indicator__tooltip-snippet {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Add button */
+.session-rail__add {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: auto;
+}
+
+.session-rail__add:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
