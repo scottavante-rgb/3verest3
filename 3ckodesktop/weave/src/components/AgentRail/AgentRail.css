@@ -1,0 +1,136 @@
+/* =============================================================================
+   AGENT RAIL
+   ============================================================================= */
+
+.agent-rail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  height: 100%;
+  font-size: 12px;
+}
+
+.agent-rail--empty {
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Header */
+.agent-rail__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding-bottom: var(--space-md);
+  border-bottom: var(--glass-border-subtle);
+}
+
+.agent-rail__status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.agent-rail__status-text {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Sections */
+.agent-rail__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.agent-rail__label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.agent-rail__goal {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--mode-agentic);
+  line-height: 1.4;
+}
+
+/* Current step */
+.agent-rail__current-step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.agent-rail__step-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--mode-agentic);
+}
+
+/* Tools */
+.agent-rail__tools {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.agent-rail__tool {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--glass-surface-layer);
+  border-radius: var(--glass-radius-sm);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.agent-rail__tool--running {
+  border: 1px solid var(--mode-agentic);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.agent-rail__tool--complete {
+  opacity: 0.5;
+}
+
+.agent-rail__tool-icon {
+  font-size: 10px;
+}
+
+.agent-rail__tool-name {
+  flex: 1;
+}
+
+.agent-rail__tool-running {
+  color: var(--mode-agentic);
+  font-size: 8px;
+}
+
+/* Progress */
+.agent-rail__progress {
+  height: 4px;
+  background: var(--glass-surface-layer);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.agent-rail__progress-bar {
+  height: 100%;
+  background: var(--mode-agentic);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.agent-rail__progress-text {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.4);
+  text-align: right;
+  margin-top: var(--space-xs);
+}
