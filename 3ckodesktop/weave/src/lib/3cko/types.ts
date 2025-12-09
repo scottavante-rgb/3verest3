@@ -50,7 +50,7 @@ export interface ModeConfig {
 export const MODE_CONFIGS: Record<AppMode, ModeConfig> = {
   chat: { id: "chat", label: "Chat", icon: "chat", color: "#10B981" },
   agentic: { id: "agentic", label: "Agentic", icon: "cpu", color: "#8B5CF6" },
-  vr: { id: "vr", label: "VR", icon: "glasses", color: "#06B6D4" },
+  vr: { id: "vr", label: "VR", icon: "microphone", color: "#06B6D4" },
 };
 
 // =============================================================================
@@ -109,21 +109,21 @@ export interface AgentTrace {
 }
 
 // =============================================================================
-// VR CONFIG TYPES
+// VR (VOICE RECOGNITION) CONFIG TYPES
 // =============================================================================
 
 export interface VRConfig {
   enabled: boolean;
-  headsetConnected: boolean;
-  renderMode: "preview" | "stereo" | "passthrough";
-  handTracking: boolean;
+  microphoneConnected: boolean;
+  listeningMode: "push-to-talk" | "voice-activation" | "continuous";
+  noiseReduction: boolean;
 }
 
 export const DEFAULT_VR_CONFIG: VRConfig = {
   enabled: false,
-  headsetConnected: false,
-  renderMode: "preview",
-  handTracking: false,
+  microphoneConnected: false,
+  listeningMode: "push-to-talk",
+  noiseReduction: true,
 };
 
 // =============================================================================

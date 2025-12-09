@@ -9,25 +9,29 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  /* Allow transparent window to show through */
+  background: transparent;
 }
 
-/* Deep navy background */
+/* Deep navy background - subtle gradient */
 .app-shell__background {
   position: absolute;
   inset: 0;
-  background: var(--glass-surface-base);
+  background: transparent;
   z-index: 0;
 }
 
-/* Glass panel */
+/* Glass panel - the star of the show */
 .app-shell__panel {
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
   flex: 1;
-  margin: var(--space-md);
+  margin: 8px;
   overflow: hidden;
+  /* Extra shine on top edge */
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* Header section */

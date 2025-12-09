@@ -17,7 +17,7 @@
   overflow: hidden;
 }
 
-/* VR mode dark vignette */
+/* Voice Recognition mode - subtle vignette for focus */
 .view-mode-container__view--vr {
   background: radial-gradient(
     ellipse at center,
@@ -39,7 +39,7 @@
 }
 
 /* =============================================================================
-   VR PREVIEW VIEW
+   VOICE RECOGNITION (VR) PREVIEW VIEW
    ============================================================================= */
 
 .vr-preview-view {
@@ -51,7 +51,7 @@
   overflow: hidden;
 }
 
-/* VR Banner */
+/* Voice Recognition Banner */
 .vr-preview-view__banner {
   display: flex;
   align-items: center;
@@ -121,11 +121,10 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* VR Timeline */
+/* Voice Recognition Timeline - larger text for readability */
 .vr-preview-view__timeline {
   flex: 1;
   overflow: hidden;
-  /* Larger text for VR */
   font-size: 16px;
 }
 

@@ -3,34 +3,34 @@
    ============================================================================= */
 
 :root {
-  /* Surface layers */
-  --glass-surface-base: rgba(12, 18, 29, 0.95);
-  --glass-surface-layer: rgba(255, 255, 255, 0.06);
-  --glass-surface-hover: rgba(255, 255, 255, 0.10);
-  --glass-surface-active: rgba(255, 255, 255, 0.14);
+  /* Surface layers - richer glass effect */
+  --glass-surface-base: rgba(15, 23, 42, 0.98);
+  --glass-surface-layer: rgba(255, 255, 255, 0.08);
+  --glass-surface-hover: rgba(255, 255, 255, 0.12);
+  --glass-surface-active: rgba(255, 255, 255, 0.16);
 
-  /* Blur */
-  --glass-blur-sm: blur(8px);
-  --glass-blur-md: blur(16px);
-  --glass-blur-lg: blur(24px);
-  --glass-blur-xl: blur(40px);
+  /* Blur - stronger for better glass feel */
+  --glass-blur-sm: blur(12px);
+  --glass-blur-md: blur(20px);
+  --glass-blur-lg: blur(32px);
+  --glass-blur-xl: blur(48px);
 
-  /* Borders */
-  --glass-border-subtle: 1px solid rgba(255, 255, 255, 0.08);
-  --glass-border-medium: 1px solid rgba(255, 255, 255, 0.12);
-  --glass-border-glow: 1px solid rgba(255, 255, 255, 0.20);
-  --glass-border-active: 1px solid rgba(101, 93, 246, 0.5);
+  /* Borders - more visible glow */
+  --glass-border-subtle: 1px solid rgba(255, 255, 255, 0.12);
+  --glass-border-medium: 1px solid rgba(255, 255, 255, 0.18);
+  --glass-border-glow: 1px solid rgba(255, 255, 255, 0.25);
+  --glass-border-active: 1px solid rgba(139, 92, 246, 0.6);
 
-  /* Shadows */
-  --glass-shadow-inset: inset 0 1px 1px rgba(255, 255, 255, 0.05);
-  --glass-shadow-elevated: 0 8px 32px rgba(0, 0, 0, 0.4);
-  --glass-shadow-glow: 0 0 20px rgba(101, 93, 246, 0.3);
+  /* Shadows - more dramatic */
+  --glass-shadow-inset: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  --glass-shadow-elevated: 0 12px 48px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(0, 0, 0, 0.3);
+  --glass-shadow-glow: 0 0 40px rgba(139, 92, 246, 0.4);
 
-  /* Radii */
-  --glass-radius-sm: 8px;
-  --glass-radius-md: 16px;
-  --glass-radius-lg: 24px;
-  --glass-radius-xl: 32px;
+  /* Radii - larger for premium feel */
+  --glass-radius-sm: 12px;
+  --glass-radius-md: 20px;
+  --glass-radius-lg: 28px;
+  --glass-radius-xl: 36px;
   --glass-radius-pill: 9999px;
 
   /* Message bubbles */
@@ -41,7 +41,7 @@
   /* Mode colors */
   --mode-chat: #10B981;
   --mode-agentic: #8B5CF6;
-  --mode-vr: #06B6D4;
+  --mode-vr: #06B6D4; /* Voice Recognition */
 
   /* Spacing */
   --space-xs: 4px;
@@ -54,14 +54,28 @@
 
 /* Glass panel base class */
 .glass-panel {
-  background: var(--glass-surface-layer);
-  backdrop-filter: var(--glass-blur-lg);
-  -webkit-backdrop-filter: var(--glass-blur-lg);
-  border: var(--glass-border-subtle);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0.02) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(30, 41, 59, 0.95),
+      rgba(15, 23, 42, 0.98)
+    );
+  backdrop-filter: var(--glass-blur-xl);
+  -webkit-backdrop-filter: var(--glass-blur-xl);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--glass-radius-xl);
   box-shadow:
-    var(--glass-shadow-inset),
-    var(--glass-shadow-elevated);
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 8px 24px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
 .glass-panel--active {

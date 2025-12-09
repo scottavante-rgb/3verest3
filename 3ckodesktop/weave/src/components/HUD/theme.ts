@@ -164,7 +164,7 @@ export const glassTokens = {
   mode: {
     chat: "#10B981",      // Green
     agentic: "#8B5CF6",   // Purple
-    vr: "#06B6D4",        // Cyan
+    vr: "#06B6D4",        // Cyan - Voice Recognition
   },
 } as const;
 
