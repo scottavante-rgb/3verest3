@@ -1,0 +1,82 @@
+/* =============================================================================
+   APP SHELL - Main Layout Container
+   ============================================================================= */
+
+.app-shell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Deep navy background */
+.app-shell__background {
+  position: absolute;
+  inset: 0;
+  background: var(--glass-surface-base);
+  z-index: 0;
+}
+
+/* Glass panel */
+.app-shell__panel {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: var(--space-md);
+  overflow: hidden;
+}
+
+/* Header section */
+.app-shell__header {
+  flex-shrink: 0;
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: var(--glass-border-subtle);
+}
+
+/* Body with rails */
+.app-shell__body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* Side rails */
+.app-shell__rail {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-shell__rail--left {
+  width: 56px;
+  border-right: var(--glass-border-subtle);
+  padding: var(--space-md) var(--space-sm);
+}
+
+.app-shell__rail--right {
+  width: 200px;
+  border-left: var(--glass-border-subtle);
+  padding: var(--space-md);
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Main content area */
+.app-shell__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+}
+
+/* Footer / Input bar */
+.app-shell__footer {
+  flex-shrink: 0;
+  padding: var(--space-md) var(--space-lg);
+  border-top: var(--glass-border-subtle);
+}
