@@ -1,0 +1,139 @@
+/* =============================================================================
+   VIEW MODE CONTAINER
+   ============================================================================= */
+
+.view-mode-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.view-mode-container__view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* VR mode dark vignette */
+.view-mode-container__view--vr {
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    rgba(0, 0, 0, 0.3) 80%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+}
+
+/* =============================================================================
+   STANDARD FLAT VIEW
+   ============================================================================= */
+
+.standard-flat-view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* =============================================================================
+   VR PREVIEW VIEW
+   ============================================================================= */
+
+.vr-preview-view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-lg);
+  gap: var(--space-lg);
+  overflow: hidden;
+}
+
+/* VR Banner */
+.vr-preview-view__banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-xl);
+  background: linear-gradient(135deg,
+    rgba(6, 182, 212, 0.2),
+    rgba(6, 182, 212, 0.1)
+  );
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  border-radius: var(--glass-radius-lg);
+}
+
+.vr-preview-view__banner-icon {
+  font-size: 20px;
+}
+
+.vr-preview-view__banner-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--mode-vr);
+}
+
+.vr-preview-view__banner-connected {
+  font-size: 11px;
+  padding: 4px 8px;
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: var(--glass-radius-pill);
+  color: #10B981;
+}
+
+/* Info card */
+.vr-preview-view__info {
+  padding: var(--space-lg);
+}
+
+.vr-preview-view__info h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 var(--space-sm) 0;
+}
+
+.vr-preview-view__info p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 var(--space-md) 0;
+}
+
+.vr-preview-view__features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.vr-preview-view__features li {
+  font-size: 11px;
+  padding: 4px 10px;
+  background: var(--glass-surface-layer);
+  border-radius: var(--glass-radius-pill);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* VR Timeline */
+.vr-preview-view__timeline {
+  flex: 1;
+  overflow: hidden;
+  /* Larger text for VR */
+  font-size: 16px;
+}
+
+.vr-preview-view__timeline .message-bubble__text {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.vr-preview-view__timeline .message-bubble__content {
+  padding: var(--space-lg) var(--space-xl);
+}
