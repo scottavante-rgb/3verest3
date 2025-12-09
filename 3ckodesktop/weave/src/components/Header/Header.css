@@ -1,0 +1,113 @@
+/* =============================================================================
+   HEADER BAR
+   ============================================================================= */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  height: 48px;
+}
+
+/* Left section: Brand */
+.header__left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.header__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.header__icon {
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__title {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.02em;
+}
+
+/* Center section: Mode selector */
+.header__center {
+  flex: 0 0 auto;
+}
+
+/* Right section: Controls */
+.header__right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+}
+
+.header__button {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.header__button:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.header__button--close:hover {
+  color: #EF4444;
+}
+
+/* =============================================================================
+   MODE SELECTOR
+   ============================================================================= */
+
+.mode-selector {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--glass-radius-pill);
+  border: var(--glass-border-subtle);
+}
+
+.mode-selector__pill {
+  position: relative;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  z-index: 1;
+  border: none;
+  background: transparent;
+}
+
+.mode-selector__pill.glass-pill--active {
+  color: white;
+  background: transparent;
+  border: none;
+}
+
+.mode-selector__indicator {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--glass-radius-pill);
+  z-index: -1;
+  opacity: 0.9;
+}
+
+.mode-selector__label {
+  position: relative;
+  z-index: 1;
+}
