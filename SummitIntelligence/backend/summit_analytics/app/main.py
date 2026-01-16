@@ -508,7 +508,7 @@ async def get_usage_metrics(
 @app.get("/api/v1/analytics/matters")
 async def get_matter_analytics(
     time_range: TimeRange = Query(TimeRange.MONTH),
-    limit: int = Query(10, le=50),
+    limit: int = Query(10, ge=1, le=50),
     supabase: Client = Depends(get_supabase),
     current_user: Dict = Depends(get_current_user)
 ):
@@ -521,28 +521,48 @@ async def get_matter_analytics(
         "id, code, name, risk_score, compliance_state"
     ).eq("org_id", org_id).execute()
 
+    if not matters.data:
+        return []
+
+    # Get all matter IDs
+    matter_ids = [m["id"] for m in matters.data]
+
+    # Batch query: Get all AI calls for all matters in one query
+    all_ai_calls = supabase.table("ai_calls").select(
+        "matter_id"
+    ).in_("matter_id", matter_ids).gte("created_at", start_date).execute()
+
+    # Batch query: Get all sources for all matters in one query
+    all_sources = supabase.table("matter_sources").select(
+        "matter_id"
+    ).in_("matter_id", matter_ids).execute()
+
+    # Aggregate counts by matter_id
+    ai_call_counts: Dict[str, int] = {}
+    for call in all_ai_calls.data or []:
+        mid = call.get("matter_id")
+        if mid:
+            ai_call_counts[mid] = ai_call_counts.get(mid, 0) + 1
+
+    source_counts: Dict[str, int] = {}
+    for source in all_sources.data or []:
+        mid = source.get("matter_id")
+        if mid:
+            source_counts[mid] = source_counts.get(mid, 0) + 1
+
+    # Build analytics list
     analytics = []
-
-    for matter in matters.data or []:
-        # Count AI calls for this matter
-        ai_calls = supabase.table("ai_calls").select("id, input_tokens, output_tokens").eq(
-            "matter_id", matter["id"]
-        ).gte("created_at", start_date).execute()
-
-        # Count sources
-        sources = supabase.table("matter_sources").select("id").eq(
-            "matter_id", matter["id"]
-        ).execute()
-
-        # Calculate time saved
-        time_saved = len(ai_calls.data or []) * 0.5 + len(sources.data or []) * 1.5
+    for matter in matters.data:
+        ai_count = ai_call_counts.get(matter["id"], 0)
+        source_count = source_counts.get(matter["id"], 0)
+        time_saved = ai_count * 0.5 + source_count * 1.5
 
         analytics.append(MatterAnalytics(
             matter_id=matter["id"],
             matter_code=matter["code"],
             matter_name=matter["name"],
-            ai_interactions=len(ai_calls.data or []),
-            documents_analyzed=len(sources.data or []),
+            ai_interactions=ai_count,
+            documents_analyzed=source_count,
             time_saved_hours=round(time_saved, 1),
             risk_score=matter.get("risk_score", 0),
             compliance_state=matter.get("compliance_state", "green")
@@ -556,7 +576,7 @@ async def get_matter_analytics(
 @app.get("/api/v1/analytics/users")
 async def get_user_analytics(
     time_range: TimeRange = Query(TimeRange.MONTH),
-    limit: int = Query(10, le=50),
+    limit: int = Query(10, ge=1, le=50),
     supabase: Client = Depends(get_supabase),
     current_user: Dict = Depends(get_current_user)
 ):
@@ -569,27 +589,52 @@ async def get_user_analytics(
         "org_id", org_id
     ).eq("is_active", True).execute()
 
+    if not users.data:
+        return []
+
+    # Get all user IDs
+    user_ids = [u["id"] for u in users.data]
+
+    # Batch query: Get all AI calls for all users in one query
+    all_ai_calls = supabase.table("ai_calls").select(
+        "user_id"
+    ).in_("user_id", user_ids).gte("created_at", start_date).execute()
+
+    # Batch query: Get all agent runs for all users in one query
+    all_agent_runs = supabase.table("agent_runs").select(
+        "triggered_by"
+    ).in_("triggered_by", user_ids).gte("created_at", start_date).execute()
+
+    # Batch query: Get all analysis sessions for all users in one query
+    all_sessions = supabase.table("analysis_sessions").select(
+        "user_id"
+    ).in_("user_id", user_ids).gte("created_at", start_date).execute()
+
+    # Aggregate counts by user_id
+    ai_call_counts: Dict[str, int] = {}
+    for call in all_ai_calls.data or []:
+        uid = call.get("user_id")
+        if uid:
+            ai_call_counts[uid] = ai_call_counts.get(uid, 0) + 1
+
+    agent_run_counts: Dict[str, int] = {}
+    for run in all_agent_runs.data or []:
+        uid = run.get("triggered_by")
+        if uid:
+            agent_run_counts[uid] = agent_run_counts.get(uid, 0) + 1
+
+    session_counts: Dict[str, int] = {}
+    for session in all_sessions.data or []:
+        uid = session.get("user_id")
+        if uid:
+            session_counts[uid] = session_counts.get(uid, 0) + 1
+
+    # Build analytics list
     analytics = []
-
-    for user in users.data or []:
-        # AI calls
-        ai_calls = supabase.table("ai_calls").select("id").eq(
-            "user_id", user["id"]
-        ).gte("created_at", start_date).execute()
-
-        # Agent runs
-        agent_runs = supabase.table("agent_runs").select("id").eq(
-            "triggered_by", user["id"]
-        ).gte("created_at", start_date).execute()
-
-        # Documents processed (through analysis sessions)
-        sessions = supabase.table("analysis_sessions").select("id").eq(
-            "user_id", user["id"]
-        ).gte("created_at", start_date).execute()
-
-        queries = len(ai_calls.data or [])
-        runs = len(agent_runs.data or [])
-        docs = len(sessions.data or [])
+    for user in users.data:
+        queries = ai_call_counts.get(user["id"], 0)
+        runs = agent_run_counts.get(user["id"], 0)
+        docs = session_counts.get(user["id"], 0)
 
         time_saved = queries * 0.5 + runs * 2 + docs * 1.5
 

@@ -10,8 +10,56 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from typing import List, Optional, Dict, Any
 from datetime import datetime, date
+from enum import Enum
 import os
 import jwt
+import logging
+
+# Configure structured logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger("summit_api")
+
+
+# ============================================
+# ENUMS FOR VALIDATION
+# ============================================
+
+class MatterStatus(str, Enum):
+    ACTIVE = "active"
+    CLOSED = "closed"
+    DRAFT = "draft"
+    ARCHIVED = "archived"
+    PENDING = "pending"
+    ON_HOLD = "on_hold"
+
+class MatterType(str, Enum):
+    LITIGATION = "litigation"
+    CORPORATE = "corporate"
+    REGULATORY = "regulatory"
+    IP = "ip"
+    EMPLOYMENT = "employment"
+    REAL_ESTATE = "real_estate"
+    TAX = "tax"
+    OTHER = "other"
+
+class AgentStatus(str, Enum):
+    ACTIVE = "active"
+    DRAFT = "draft"
+    ARCHIVED = "archived"
+    DISABLED = "disabled"
+
+class SourceType(str, Enum):
+    DOCUMENT = "document"
+    EMAIL = "email"
+    PLEADING = "pleading"
+    CORRESPONDENCE = "correspondence"
+    CONTRACT = "contract"
+    EVIDENCE = "evidence"
+    RESEARCH = "research"
+    OTHER = "other"
 from contextlib import asynccontextmanager
 
 from supabase import create_client, Client
@@ -29,15 +77,59 @@ load_dotenv()
 limiter = Limiter(key_func=get_remote_address)
 
 # ============================================
+# CONFIGURATION
+# ============================================
+
+# Request size limits
+MAX_REQUEST_BODY_SIZE = 10 * 1024 * 1024  # 10 MB
+
+
+def normalize_origin(origin: str) -> str:
+    """Normalize CORS origin by removing trailing slashes and whitespace."""
+    return origin.strip().rstrip("/")
+
+
+def validate_environment():
+    """Validate required environment variables at startup."""
+    required_vars = []
+    warnings = []
+
+    # Check Supabase configuration
+    if not os.getenv("SUPABASE_URL"):
+        required_vars.append("SUPABASE_URL")
+    if not os.getenv("SUPABASE_SERVICE_ROLE_KEY"):
+        required_vars.append("SUPABASE_SERVICE_ROLE_KEY")
+
+    # Warn about missing optional but recommended vars
+    if not os.getenv("SUPABASE_JWT_SECRET"):
+        warnings.append("SUPABASE_JWT_SECRET not set - running in demo mode")
+
+    # Log warnings
+    for warning in warnings:
+        logger.warning(warning)
+
+    # Fail if required vars are missing
+    if required_vars:
+        error_msg = f"Missing required environment variables: {', '.join(required_vars)}"
+        logger.error(error_msg)
+        raise RuntimeError(error_msg)
+
+
+# ============================================
 # APP INITIALIZATION
 # ============================================
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Application lifespan manager"""
-    print("Summit API starting...")
+    logger.info("Summit API starting...")
+
+    # Validate environment at startup
+    validate_environment()
+
+    logger.info("Environment validated successfully")
     yield
-    print("Summit API shutting down...")
+    logger.info("Summit API shutting down...")
 
 app = FastAPI(
     title="Summit Intelligence API",
@@ -50,13 +142,39 @@ app = FastAPI(
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
+
+# Request body size limit middleware
+from starlette.responses import JSONResponse
+
+@app.middleware("http")
+async def limit_request_body_size(request: Request, call_next):
+    """Reject requests with bodies larger than MAX_REQUEST_BODY_SIZE."""
+    content_length = request.headers.get("content-length")
+    if content_length:
+        try:
+            if int(content_length) > MAX_REQUEST_BODY_SIZE:
+                return JSONResponse(
+                    status_code=413,
+                    content={"detail": f"Request body too large. Maximum size is {MAX_REQUEST_BODY_SIZE // (1024 * 1024)} MB"}
+                )
+        except ValueError:
+            # Invalid content-length header
+            pass
+    return await call_next(request)
+
+
 # CORS Configuration - Restricted for security
 ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://localhost:3001",
+    normalize_origin("http://localhost:3000"),
+    normalize_origin("http://localhost:3001"),
 ]
 if os.getenv("FRONTEND_URL"):
-    ALLOWED_ORIGINS.append(os.getenv("FRONTEND_URL"))
+    ALLOWED_ORIGINS.append(normalize_origin(os.getenv("FRONTEND_URL")))
+
+# Validate origins
+for origin in ALLOWED_ORIGINS:
+    if not origin.startswith(("http://", "https://")):
+        logger.warning(f"Invalid CORS origin format: {origin}")
 
 app.add_middleware(
     CORSMiddleware,
@@ -242,8 +360,76 @@ async def get_current_user(
         raise HTTPException(status_code=401, detail=f"Invalid token: {str(e)}")
     except Exception as e:
         # Log the error for debugging but don't expose details
-        print(f"Authentication error: {str(e)}")
+        logger.error(f"Authentication error: {str(e)}", exc_info=True)
         raise HTTPException(status_code=401, detail="Authentication failed")
+
+
+# ============================================
+# AUDIT LOGGING
+# ============================================
+
+async def audit_log(
+    supabase: Client,
+    org_id: str,
+    user_id: str,
+    action: str,
+    resource_type: str,
+    resource_id: Optional[str] = None,
+    details: Optional[Dict[str, Any]] = None,
+    ip_address: Optional[str] = None
+) -> None:
+    """
+    Log audit events for sensitive operations.
+
+    Args:
+        supabase: Supabase client
+        org_id: Organisation ID
+        user_id: User who performed the action
+        action: Action performed (view, search, export, etc.)
+        resource_type: Type of resource accessed (user_list, matter, search, etc.)
+        resource_id: Specific resource ID if applicable
+        details: Additional context about the action
+        ip_address: Client IP address
+    """
+    try:
+        audit_data = {
+            "org_id": org_id,
+            "user_id": user_id,
+            "action": action,
+            "resource_type": resource_type,
+            "resource_id": resource_id,
+            "details": details or {},
+            "ip_address": ip_address,
+            "timestamp": datetime.utcnow().isoformat()
+        }
+
+        # Log to database
+        supabase.table("audit_log").insert(audit_data).execute()
+
+        # Also log to structured logger for external monitoring
+        logger.info(
+            f"AUDIT: {action} on {resource_type}",
+            extra={
+                "org_id": org_id,
+                "user_id": user_id,
+                "action": action,
+                "resource_type": resource_type,
+                "resource_id": resource_id
+            }
+        )
+    except Exception as e:
+        # Don't fail the request if audit logging fails
+        logger.error(f"Failed to log audit event: {e}", exc_info=True)
+
+
+def get_client_ip(request: Request) -> str:
+    """Extract client IP from request, handling proxies."""
+    forwarded_for = request.headers.get("X-Forwarded-For")
+    if forwarded_for:
+        # Take the first IP (client IP)
+        return forwarded_for.split(",")[0].strip()
+    return request.client.host if request.client else "unknown"
+
 
 # ============================================
 # HEALTH CHECK
@@ -288,6 +474,16 @@ async def list_users(
     current_user: Dict = Depends(get_current_user)
 ):
     """List users in current organisation"""
+    # Audit log: viewing org user list is sensitive
+    await audit_log(
+        supabase=supabase,
+        org_id=current_user["org_id"],
+        user_id=current_user["id"],
+        action="view",
+        resource_type="user_list",
+        ip_address=get_client_ip(request)
+    )
+
     result = supabase.table("users").select("*").eq("org_id", current_user["org_id"]).execute()
     return result.data or []
 
@@ -304,10 +500,10 @@ async def get_current_user_profile(current_user: Dict = Depends(get_current_user
 @limiter.limit("60/minute")
 async def list_matters(
     request: Request,
-    status: Optional[str] = Query(None),
-    matter_type: Optional[str] = Query(None),
-    limit: int = Query(50, le=100),
-    offset: int = Query(0),
+    status: Optional[MatterStatus] = Query(None, description="Filter by matter status"),
+    matter_type: Optional[MatterType] = Query(None, description="Filter by matter type"),
+    limit: int = Query(50, ge=1, le=100),
+    offset: int = Query(0, ge=0),
     supabase: Client = Depends(get_supabase),
     current_user: Dict = Depends(get_current_user)
 ):
@@ -317,9 +513,9 @@ async def list_matters(
     ).eq("org_id", current_user["org_id"])
 
     if status:
-        query = query.eq("status", status)
+        query = query.eq("status", status.value)
     if matter_type:
-        query = query.eq("matter_type", matter_type)
+        query = query.eq("matter_type", matter_type.value)
 
     result = query.order("updated_at", desc=True).range(offset, offset + limit - 1).execute()
 
@@ -367,8 +563,8 @@ async def get_matter(
 @app.get("/api/v1/matters/{matter_id}/sources", response_model=List[MatterSource])
 async def list_matter_sources(
     matter_id: str,
-    source_type: Optional[str] = Query(None),
-    limit: int = Query(50, le=200),
+    source_type: Optional[SourceType] = Query(None, description="Filter by source type"),
+    limit: int = Query(50, ge=1, le=200),
     supabase: Client = Depends(get_supabase),
     current_user: Dict = Depends(get_current_user)
 ):
@@ -376,7 +572,7 @@ async def list_matter_sources(
     query = supabase.table("matter_sources").select("*").eq("matter_id", matter_id)
 
     if source_type:
-        query = query.eq("source_type", source_type)
+        query = query.eq("source_type", source_type.value)
 
     result = query.order("created_at", desc=True).limit(limit).execute()
     return result.data or []
@@ -416,7 +612,7 @@ async def list_matter_events(
 
 @app.get("/api/v1/deadlines")
 async def list_upcoming_deadlines(
-    days: int = Query(30, le=90),
+    days: int = Query(30, ge=1, le=90),
     supabase: Client = Depends(get_supabase),
     current_user: Dict = Depends(get_current_user)
 ):
@@ -460,6 +656,18 @@ async def search(
 
     if not sanitized_query:
         raise HTTPException(status_code=400, detail="Invalid search query")
+
+    # Audit log: searches are sensitive (may indicate interest in specific matters/topics)
+    await audit_log(
+        supabase=supabase,
+        org_id=current_user["org_id"],
+        user_id=current_user["id"],
+        action="search",
+        resource_type="cross_matter_search",
+        resource_id=query.matter_id,  # If scoped to specific matter
+        details={"query_length": len(sanitized_query)},  # Don't log query itself for privacy
+        ip_address=get_client_ip(request)
+    )
 
     results = {
         "matters": [],
@@ -542,7 +750,7 @@ async def get_sgi_history(
 
 @app.get("/api/v1/agents")
 async def list_agents(
-    status: Optional[str] = Query(None),
+    status: Optional[AgentStatus] = Query(None, description="Filter by agent status"),
     supabase: Client = Depends(get_supabase),
     current_user: Dict = Depends(get_current_user)
 ):
@@ -550,7 +758,7 @@ async def list_agents(
     query = supabase.table("agent_definitions").select("*").eq("org_id", current_user["org_id"])
 
     if status:
-        query = query.eq("status", status)
+        query = query.eq("status", status.value)
 
     result = query.order("name").execute()
     return result.data or []
@@ -570,7 +778,7 @@ async def get_agent(
 @app.get("/api/v1/agents/{agent_id}/runs")
 async def list_agent_runs(
     agent_id: str,
-    limit: int = Query(20, le=50),
+    limit: int = Query(20, ge=1, le=50),
     supabase: Client = Depends(get_supabase),
     current_user: Dict = Depends(get_current_user)
 ):

@@ -17,7 +17,15 @@ import os
 import json
 import jwt
 import asyncio
+import logging
 from contextlib import asynccontextmanager
+
+# Configure structured logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger("summit_llm")
 
 from openai import AsyncOpenAI
 from supabase import create_client, Client
@@ -289,23 +297,49 @@ async def log_ai_call(
     output_tokens: int,
     latency_ms: int,
     matter_id: Optional[str] = None,
-    metadata: Dict[str, Any] = {}
-):
-    """Log AI call for analytics and billing"""
+    metadata: Dict[str, Any] = {},
+    error: Optional[str] = None
+) -> bool:
+    """
+    Log AI call for analytics and billing.
+
+    Returns True if logging succeeded, False otherwise.
+    Errors are logged but do not interrupt the main flow.
+    """
+    call_data = {
+        "org_id": org_id,
+        "user_id": user_id,
+        "model": model,
+        "call_type": task_type,
+        "input_tokens": input_tokens,
+        "output_tokens": output_tokens,
+        "latency_ms": latency_ms,
+        "matter_id": matter_id,
+        "metadata": metadata,
+        "success": error is None,
+    }
+
+    # Include error in metadata if present
+    if error:
+        call_data["metadata"] = {**metadata, "error": error}
+
     try:
-        supabase.table("ai_calls").insert({
-            "org_id": org_id,
-            "user_id": user_id,
-            "model": model,
-            "call_type": task_type,
-            "input_tokens": input_tokens,
-            "output_tokens": output_tokens,
-            "latency_ms": latency_ms,
-            "matter_id": matter_id,
-            "metadata": metadata
-        }).execute()
+        supabase.table("ai_calls").insert(call_data).execute()
+        logger.debug(f"AI call logged: model={model}, task={task_type}, tokens={input_tokens}/{output_tokens}")
+        return True
     except Exception as e:
-        print(f"Failed to log AI call: {e}")
+        # Log with full context for debugging
+        logger.error(
+            f"Failed to log AI call: {e}",
+            extra={
+                "org_id": org_id,
+                "user_id": user_id,
+                "model": model,
+                "task_type": task_type,
+                "error_type": type(e).__name__
+            }
+        )
+        return False
 
 # ============================================
 # AUTHENTICATION
@@ -383,7 +417,7 @@ async def get_current_user(
     except jwt.InvalidTokenError as e:
         raise HTTPException(status_code=401, detail=f"Invalid token: {str(e)}")
     except Exception as e:
-        print(f"Authentication error: {str(e)}")
+        logger.error(f"Authentication error: {str(e)}", exc_info=True)
         raise HTTPException(status_code=401, detail="Authentication failed")
 
 # ============================================
@@ -459,21 +493,32 @@ async def complete(
                     request.matter_id, request.metadata
                 )
             except Exception as e:
-                # Send error to client and log
+                # Send error to client
                 error_msg = str(e) if os.getenv("DEBUG") == "true" else "An error occurred during completion"
                 yield f"data: {json.dumps({'error': error_msg, 'done': True})}\n\n"
-                print(f"Streaming error: {e}")
-                # Log failed call for monitoring
+
+                # Log error with full context
+                logger.error(
+                    f"Streaming completion error: {e}",
+                    extra={
+                        "user_id": current_user["id"],
+                        "org_id": current_user["org_id"],
+                        "matter_id": request.matter_id,
+                        "task_type": request.task_type.value,
+                        "error_type": type(e).__name__
+                    },
+                    exc_info=True  # Include stack trace
+                )
+
+                # Log failed call for monitoring (errors here are handled by log_ai_call)
                 latency_ms = int((datetime.utcnow() - start_time).total_seconds() * 1000)
-                try:
-                    await log_ai_call(
-                        supabase, current_user["org_id"], current_user["id"],
-                        model, request.task_type.value,
-                        input_tokens, 0, latency_ms,
-                        request.matter_id, {"error": str(e), **(request.metadata or {})}
-                    )
-                except:
-                    pass  # Don't fail if logging fails
+                await log_ai_call(
+                    supabase, current_user["org_id"], current_user["id"],
+                    model, request.task_type.value,
+                    input_tokens, 0, latency_ms,
+                    request.matter_id, request.metadata or {},
+                    error=str(e)
+                )
 
         return StreamingResponse(
             stream_response(),
